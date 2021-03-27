@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "exchange4students": {
+      "hosting": {
+        "Exchange4Students": [
+          "exchange4students"
+        ]
+      }
+    }
+  }
+}
