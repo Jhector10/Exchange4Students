@@ -1,0 +1,29 @@
+/* TO DO: figure out why css file is not working with HTML of component */
+.specific-elements{
+    display: none;
+    position: absolute;
+}
+
+.book{color: black;}
+.clothing{color: black;}
+.furniture{color: black;}
+.electronics{color: black;}
+.sportsgear{color: black;}
+
+
+
+  
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
