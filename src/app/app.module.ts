@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { ListingFormComponent } from './listing-form/listing-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
+
 @NgModule({
-  declarations: [ AppComponent, NavigationBarComponent ],
+  declarations: [ 
+    AppComponent, 
+    ListingFormComponent, 
+    NavigationBarComponent 
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +34,8 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   }),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
