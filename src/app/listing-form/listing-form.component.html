@@ -2,7 +2,7 @@
     <h2>Add New Listing</h2>
     <form [formGroup] = "listingForm" (ngSubmit)="onSubmit()">
 
-            <select id="category" placeholder="Item Category" formControlName="category">
+            <select id="category" formControlName="category">
                 <option value="" disabled selected hidden>Item Category</option>
                 <option value="book">Book</option>
                 <option value="clothing">Clothing</option>
@@ -11,7 +11,7 @@
                 <option value="sportsgear">Sportsgear</option>
             </select>
 
-        <div class="book specific-elements" style="display: none;">
+        <div class="book specific-elements" formGroupName="bookElements" style="display: none;">
             <input type="text" placeholder="Book Title" formControlName="bookTitle" required>
             <br>
             <input type="text" placeholder="Edition" formControlName="edition" required>
@@ -21,7 +21,7 @@
         
  
 
-        <div class="clothing specific-elements" style="display: none;">
+        <div class="clothing specific-elements" formGroupName="clothingElements" style="display: none;">
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
             <input type="text" placeholder="Color" formControlName="color" required>
@@ -30,7 +30,7 @@
         </div>
 
     
-        <div class="furniture specific-elements" style="display: none;">
+        <div class="furniture specific-elements" formGroupName="furnitureElements" style="display: none;">
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
             <input type="text" placeholder="Color" formControlName="color" required>
@@ -44,7 +44,7 @@
         </div>
 
 
-        <div class="electronics specific-elements" style="display: none;">
+        <div class="electronics specific-elements" formGroupName="electronicsElements" style="display: none;">
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
             <input type="text" placeholder="Model" formControlName="model" required>
@@ -59,7 +59,7 @@
         </div>
 
 
-        <div class="sportsgear specific-elements" style="display: none;">
+        <div class="sportsgear specific-elements" formGroupName="sportsGearElements"  style="display: none;">
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
             <input type="text" placeholder="Weight" formControlName="weight" required>
@@ -92,22 +92,3 @@
     <br>
         <button type="submit" [disabled]="!listingForm.valid">Submit</button>
     </form>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-//Shows input boxes for the specific elements of a specific category
-    $(document).ready(function(){
-        $("select").change(function(){
-            $(this).find("option:selected").each(function(){
-                let optionValue = $(this).attr("value");
-                if(optionValue){
-                $(".specific-elements").not("." + optionValue).hide();
-                $("." + optionValue).show();
-                } else{
-                $(".specific-elements").hide();
-                }
-            });
-        }).change();
-    });
-  
-    </script>

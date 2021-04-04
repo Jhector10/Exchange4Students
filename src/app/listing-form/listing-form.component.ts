@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import {FormBuilder,  FormControl} from '@angular/forms';
+import 'jquery';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-listing-form',
@@ -15,6 +17,7 @@ export class ListingFormComponent {
   constructor(private fb: FormBuilder) {}
 
   //Grouping the Listing Form under the same attributes
+
   listingForm = this.fb.group (
     { category: new FormControl(['', Validators.required]),
       title: new FormControl(''),
@@ -62,8 +65,20 @@ export class ListingFormComponent {
 });
 
   
-  ngOnInit(){ //Initiate and subcribe to an observable
-    this.listingForm.valueChanges.subscribe(console.log)
+  ngOnInit(): void{ 
+    $(document).ready(function(){
+      $("#category").change(function(){
+        $(this).find("option:selected").each(function(){
+              let optionValue = $(this).attr("value");
+              if(optionValue){
+                $(".specific-elements").not("." + optionValue).hide();
+                $("." + optionValue).show();
+              } else{
+                $(".specific-elements").hide();
+              }
+          });
+      }).change();
+  });
   }
   
 
