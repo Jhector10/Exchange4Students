@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -23,6 +26,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp( {
       apiKey: "AIzaSyD4sVCwHgz1GUoP7ITGkdg4TtpvDX8uX2o",
       authDomain: "exchange4students.firebaseapp.com",
