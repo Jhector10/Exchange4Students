@@ -1,7 +1,6 @@
 /* TO DO: figure out why css file is not working with HTML of component */
 .specific-elements{
     display: none;
-    position: absolute;
 }
 
 .book{color: black;}
