@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Router } from "@angular/router";
 import firebase from 'firebase/app';
 
 export interface User {
@@ -18,8 +19,10 @@ export interface User {
 export class AuthService {
     user$: Observable<User | null | undefined>;
 
-    constructor(private afAuth: AngularFireAuth,
-        private afs: AngularFirestore ) {
+    constructor(
+        private afAuth: AngularFireAuth,
+        private afs: AngularFirestore,
+        public router: Router ) {
         // Get auth data, then get firestore user document || null
 
         this.user$ = this.afAuth.authState.pipe(

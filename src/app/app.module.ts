@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     AngularFireStorageModule, // storage
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ AuthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
