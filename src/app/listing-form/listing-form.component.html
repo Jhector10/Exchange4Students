@@ -1,7 +1,49 @@
 
+    <body>
     <h2>Add New Listing</h2>
-    <form [formGroup] = "listingForm" (ngSubmit)="onSubmit()">
+      <div id = "listing-preview">
+        <img id="images" src="http://placehold.it/180" alt="listing image" required/> 
 
+        <!-- Book Elements in Preview-->
+        <p *ngIf="listingForm.value.bookElements.bookTitle">Book Title: {{this.listingForm.value.bookElements.bookTitle}}</p> 
+        <p *ngIf="listingForm.value.bookElements.edition">Edition: {{this.listingForm.value.bookElements.edition}}</p> 
+        <p *ngIf="listingForm.value.bookElements.courseNum">Course Number: {{this.listingForm.value.bookElements.courseNum}}</p> 
+
+        <!-- Clothing Elements in Preview-->
+        <p *ngIf="listingForm.value.clothingElements.type">Type: {{this.listingForm.value.clothingElements.type}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.color">Color: {{this.listingForm.value.clothingElements.color}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.size">Size: {{this.listingForm.value.clothingElements.size}}</p> 
+
+        <!-- Furniture Elements in Preview-->
+        <p *ngIf="listingForm.value.furnitureElements.type">Type: {{this.listingForm.value.furnitureElements.type}}</p> 
+        <p *ngIf="listingForm.value.furnitureElements.color">Color: {{this.listingForm.value.furnitureElements.color}}</p> 
+        <p *ngIf="listingForm.value.furnitureElements.length">Length: {{this.listingForm.value.furnitureElements.length}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.width">Width: {{this.listingForm.value.furnitureElements.width}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.Height">Height: {{this.listingForm.value.furnitureElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.weight">Weight: {{this.listingForm.value.furnitureElements.weight}} lb.</p> 
+
+        <!-- Electronics Elements in Preview-->
+        <p *ngIf="listingForm.value.electronicsElements.type">Type: {{this.listingForm.value.electronicsElements.type}}</p> 
+        <p *ngIf="listingForm.value.electronicsElements.model">Model: {{this.listingForm.value.electronicsElements.model}}</p> 
+        <p *ngIf="listingForm.value.electronicsElements.length">Length: {{this.listingForm.value.electronicsElements.length}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.width">Width: {{this.listingForm.value.electronicsElements.width}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.Height">Height: {{this.listingForm.value.electronicsElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.weight">Weight: {{this.listingForm.value.electronicsElements.weight}} lb.</p> 
+
+        <!-- Sportsgear Elements in Preview-->
+        <p *ngIf="listingForm.value.sportsGearElements.type">Type: {{this.listingForm.value.sportsGearElements.type}}</p> 
+        <p *ngIf="listingForm.value.sportsGearElements.weight">Weight: {{this.listingForm.value.sportsGearElements.weight}} lb.</p> 
+
+        <p>Description: {{this.listingForm.value.description}}</p>
+        <p>Price: ${{this.listingForm.value.price}}</p> 
+        
+        <p>Item Status: {{this.listingForm.value.itemStatus}}</p>
+        <p>Exchange Location: {{this.listingForm.value.exchangeLoc}}</p>
+        <p>Payment Option: {{this.listingForm.value.paymentOpt}}</p>
+    </div>
+
+    <form [formGroup] = "listingForm" (ngSubmit)="onSubmit()">
+        <label for="category">Select a Listing Category</label> <br>
             <select id="category" formControlName="category">
                 <option value="" disabled selected hidden>Item Category</option>
                 <option value="book">Book</option>
@@ -36,11 +78,11 @@
             <input type="text" placeholder="Color" formControlName="color" required>
             <br>
             <label>Dimensions: </label><br>
-                <input type="text" placeholder="Length" formControlName="length">
-                <input type="text" placeholder="Width" formControlName="width">
-                <input type="text" placeholder="Height" formControlName="height">
+                <input type="text" placeholder="Length" formControlName="length"> in.
+                <input type="text" placeholder="Width" formControlName="width"> in.
+                <input type="text" placeholder="Height" formControlName="height"> in.
             <br>
-            <input type="text" placeholder="Weight" formControlName="weight" required>
+            <input type="text" placeholder="Weight" formControlName="weight" required> lb.
         </div>
 
 
@@ -50,19 +92,19 @@
             <input type="text" placeholder="Model" formControlName="model" required>
             <br>
             <label>Dimensions: </label><br>
-                <input type="text" placeholder="Length" formControlName="length">
-                <input type="text" placeholder="Width" formControlName="width">
-                <input type="text" placeholder="Height" formControlName="height">
+                <input type="text" placeholder="Length" formControlName="length"> in.
+                <input type="text" placeholder="Width" formControlName="width"> in. 
+                <input type="text" placeholder="Height" formControlName="height"> in.
             
             <br>
-            <input type="text" placeholder="Weight" formControlName="weight" required>
+            <input type="text" placeholder="Weight" formControlName="weight" required> lb.
         </div>
 
 
         <div class="sportsgear specific-elements" formGroupName="sportsGearElements"  style="display: none;">
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
-            <input type="text" placeholder="Weight" formControlName="weight" required>
+            <input type="text" placeholder="Weight" formControlName="weight" required> lb.
         </div>
     <br>
         <label>
@@ -71,7 +113,7 @@
         </label>    
     <br>
         <label>
-            <input type="text" placeholder="Price ($)" formControlName="price" required>
+            $ <input type="text" placeholder="Price" formControlName="price" required>
         </label>
     <br>
         <label>
@@ -83,12 +125,19 @@
         </label>
     <br>
         <label>
-            <input type="text" placeholder="Exchange Location" formControlName="title" required>
+            <input type="text" placeholder="Exchange Location" formControlName="exchangeLoc" required>
         </label>
     <br>
         <label>
             <input type="text" placeholder="Payment Option" formControlName="paymentOpt" required>
         </label>
     <br>
-        <button type="submit" [disabled]="!listingForm.valid">Submit</button>
+    <label for="listingphotos">Upload photo of item:</label> <br>
+        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos">
+  
+    <br>
+        <button type="submit" [disabled]="!listingForm.valid">Post Listing</button>
     </form>
+
+    
+</body>

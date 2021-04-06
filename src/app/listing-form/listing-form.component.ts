@@ -1,6 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormGroup, Validators } from '@angular/forms';
 import {FormBuilder,  FormControl} from '@angular/forms';
 import 'jquery';
 import * as $ from "jquery";
@@ -14,33 +14,35 @@ import * as $ from "jquery";
 
 export class ListingFormComponent {
   //Creating a FormBuilder
-  constructor(private fb: FormBuilder) {}
+  //Creating a FormBuilder
+  
+  constructor() {}
 
   //Grouping the Listing Form under the same attributes
 
-  listingForm = this.fb.group (
-    { category: new FormControl(['', Validators.required]),
+  listingForm = new FormGroup(
+    { category: new FormControl(['']),
       title: new FormControl(''),
       description: new FormControl(''),
       price: new FormControl(''),
       itemStatus: new FormControl(''),
       exchangeLoc: new FormControl(''),
       paymentOpt: new FormControl(''),
-
+      listingPhotos: new FormControl('', [Validators.required]),
     //Separate FormGroups for specific category elements
-    bookElements: this.fb.group ({ //Book elements group
+    bookElements: new FormGroup ({ //Book elements group
       bookTitle: new FormControl(''),
       edition: new FormControl(''),
       courseNum: new FormControl(''),
   }),
 
-    clothingElements: this.fb.group ({ //Clothing elements group 
+    clothingElements: new FormGroup ({ //Clothing elements group 
       type: new FormControl(''),
       color: new FormControl(''),
       size: new FormControl(''),
   }),
 
-    furnitureElements: this.fb.group ({ //Furniture elements group 
+    furnitureElements: new FormGroup ({ //Furniture elements group 
       type: new FormControl(''),
       color: new FormControl(''),
       length: new FormControl(''),
@@ -48,7 +50,7 @@ export class ListingFormComponent {
       height: new FormControl(''),
       weight: new FormControl(''),
   }),
-    electronicsElements: this.fb.group ({ //Electronics elements group
+    electronicsElements: new FormGroup({ //Electronics elements group
       type: new FormControl(''),
       model: new FormControl(''),
       length: new FormControl(''),
@@ -57,7 +59,7 @@ export class ListingFormComponent {
       weight: new FormControl(''),
   }),
 
-    sportsGearElements: this.fb.group ({ //Sportsgear elements group
+    sportsGearElements: new FormGroup({ //Sportsgear elements group
       type: new FormControl(''),
       weight: new FormControl(''),
   }),
@@ -79,8 +81,7 @@ export class ListingFormComponent {
           });
       }).change();
   });
-  }
-  
+}
 
   submitted = false;
 
