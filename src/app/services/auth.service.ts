@@ -20,9 +20,8 @@ export class AuthService {
     user$: Observable<User | null | undefined>;
 
     constructor(
-        private afAuth: AngularFireAuth,
-        private afs: AngularFirestore,
-        public router: Router ) {
+        public afAuth: AngularFireAuth,
+        public afs: AngularFirestore, ) {
         // Get auth data, then get firestore user document || null
 
         this.user$ = this.afAuth.authState.pipe(
