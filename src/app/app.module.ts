@@ -24,13 +24,15 @@ import { ListingFormComponent } from './listing-form/listing-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
   declarations: [ 
     AppComponent, 
     ListingFormComponent, 
-    NavigationBarComponent, HomeComponent 
+    NavigationBarComponent, HomeComponent, SearchComponent 
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [ AuthService ],
   bootstrap: [ AppComponent ]
