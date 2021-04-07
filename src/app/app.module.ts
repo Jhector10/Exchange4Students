@@ -22,6 +22,8 @@ import { AppComponent } from './app.component';
 
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { AddListingPageComponent } from './add-listing-page/add-listing-page.component';
@@ -30,6 +32,7 @@ import { ClothingPageComponent } from './clothing-page/clothing-page.component';
 import { FurniturePageComponent } from './furniture-page/furniture-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
+
 
 @NgModule({
   declarations: [ 
@@ -62,6 +65,7 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     MatButtonModule,
     MatDividerModule,
     MatInputModule,
