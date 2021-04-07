@@ -2,7 +2,7 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark red darken-4" [containerInside]="false">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="#">Exchange4Students</a></mdb-navbar-brand>
+    <mdb-navbar-brand><a class="navbar-brand" href='#'>Exchange4Students</a></mdb-navbar-brand>
   
     <!-- Collapsible content -->
     <links>
@@ -36,7 +36,7 @@
   
     <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
-            <a class="nav-link"><mdb-icon fas icon="plus"></mdb-icon>Add Listing</a>
+            <a class="nav-link" routerLink="/listing-page" routerLinkActive="active"><mdb-icon fas icon="plus"></mdb-icon>Add Listing</a>
         </li>
         <li class="nav-item">
             <a class="nav-link"><mdb-icon fas icon="shopping-cart"></mdb-icon>Cart</a>
@@ -49,7 +49,7 @@
                 <a class="dropdown-item waves-light" mdbWavesEffect href="#">View Orders</a>
                 <a class="dropdown-item waves-light" mdbWavesEffect href="#">Settings</a>
                 <div class="divider dropdown-divider"></div>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="auth.signOut()">Log out</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect (click)="auth.signOut()">Log out</a>
             </div>
         </li>
     </ul>
@@ -59,3 +59,5 @@
   
   </mdb-navbar>
   <!--/.Navbar-->
+
+  <router-outlet></router-outlet>

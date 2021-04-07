@@ -24,13 +24,16 @@ import { ListingFormComponent } from './listing-form/listing-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
+import { AddListingPageComponent } from './add-listing-page/add-listing-page.component';
 
 
 @NgModule({
   declarations: [ 
     AppComponent, 
     ListingFormComponent, 
-    NavigationBarComponent, HomeComponent 
+    NavigationBarComponent, 
+    HomeComponent, 
+    AddListingPageComponent 
   ],
   imports: [
     BrowserModule,
