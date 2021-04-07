@@ -3,20 +3,7 @@
 select{
   border: 1px solid #aaa;
 }
-  
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
+
   /* TO DO: figure out why css file is not working with HTML of component */
 .specific-elements{
   display: none;
@@ -124,11 +111,17 @@ input[type=file]{
   color: white;
 }
 
+p{
+  display: block;
+  margin: 3px;
+}
+
 #listing-preview{ 
-  position: fixed;
-  margin: 10px 50%;
+  position: absolute;
+  margin: 10px 350px;
   width:400px;
-  float: left;
+  text-align: left;
+  display: inline-block;
   border:1px solid #aaa;
 }
 
@@ -136,5 +129,7 @@ img {
   width: 100%;
   width: 180px;
   height: 180px;
+  margin: 3px;
   object-fit: cover;
+  float: left;
 }

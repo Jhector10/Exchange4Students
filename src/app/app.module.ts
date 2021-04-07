@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    ReactiveFormsModule
+    ReactiveFormsModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
