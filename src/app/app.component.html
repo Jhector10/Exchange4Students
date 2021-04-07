@@ -1,2 +1,19 @@
-<app-navigation-bar></app-navigation-bar>
-<app-listing-form></app-listing-form>
+
+<div class="wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <div *ngIf="auth.user$ | async as user; else signIn" fxLayout="column" fxFlex="50">
+      
+        <app-home></app-home>
+  
+      <!-- <pre>{{user | json}}</pre> -->
+    </div>
+  
+<ng-template #signIn>
+    <div fxLayout="column">
+        <button mat-raised-button (click)="auth.googleLogin()">Sign In with Google</button>
+    </div>
+</ng-template>
+  
+    <!-- <router-outlet></router-outlet> -->
+  
+</div>
