@@ -25,7 +25,11 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { AddListingPageComponent } from './add-listing-page/add-listing-page.component';
-
+import { BookPageComponent } from './book-page/book-page.component';
+import { ClothingPageComponent } from './clothing-page/clothing-page.component';
+import { FurniturePageComponent } from './furniture-page/furniture-page.component';
+import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
+import { SportsPageComponent } from './sports-page/sports-page.component';
 
 @NgModule({
   declarations: [ 
@@ -33,7 +37,12 @@ import { AddListingPageComponent } from './add-listing-page/add-listing-page.com
     ListingFormComponent, 
     NavigationBarComponent, 
     HomeComponent, 
-    AddListingPageComponent 
+    AddListingPageComponent, 
+    BookPageComponent, 
+    ClothingPageComponent, 
+    FurniturePageComponent, 
+    ElectronicsPageComponent, 
+    SportsPageComponent 
   ],
   imports: [
     BrowserModule,
