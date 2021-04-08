@@ -86,8 +86,10 @@ export class ListingFormComponent {
 
   submitted = false;
 
-  onSubmit() { 
-    this.firestore.collection('books').add({
+  onSubmit() {
+    if(this.listingForm.value.category == "book")
+    {
+      this.firestore.collection('books').add({
       category: this.listingForm.value.category,
       title: this.listingForm.value.bookElements.bookTitle,
       edition: this.listingForm.value.bookElements.edition,
@@ -98,17 +100,107 @@ export class ListingFormComponent {
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
       // listingPhotos: this.listingForm.value.listingPhotos
-
-    })
-    .then(res => {
-      console.log(res);
-      this.listingForm.reset();
-    })
-    .catch(e => {
-      console.log(e);
-    })
+      })
+      .then(res => {
+        console.log(res);
+        this.listingForm.reset();
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }
+    if(this.listingForm.value.category == "clothing")
+    {
+      this.firestore.collection('clothing').add({
+      category: this.listingForm.value.category,
+      type:this.listingForm.value.clothingElements.type,
+      color: this.listingForm.value.clothingElements.color,
+      size: this.listingForm.value.clothingElements.size,
+      description: this.listingForm.value.description,
+      price: this.listingForm.value.price,
+      itemStatus: this.listingForm.value.itemStatus,
+      exchangeLoc: this.listingForm.value.exchangeLoc,
+      paymentOpt: this.listingForm.value.paymentOpt,
+      // listingPhotos: this.listingForm.value.listingPhotos
+      })
+      .then(res => {
+        console.log(res);
+        this.listingForm.reset();
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }
+    if(this.listingForm.value.category == "furniture")
+    {
+      this.firestore.collection('furniture').add({
+      category: this.listingForm.value.category,
+      type: this.listingForm.value.furnitureElements.type,
+      color: this.listingForm.value.furnitureElements.color,
+      length: this.listingForm.value.furnitureElements.length,
+      width: this.listingForm.value.furnitureElements.width,
+      height: this.listingForm.value.furnitureElements.height,
+      weight: this.listingForm.value.furnitureElements.weight,
+      description: this.listingForm.value.description,
+      price: this.listingForm.value.price,
+      itemStatus: this.listingForm.value.itemStatus,
+      exchangeLoc: this.listingForm.value.exchangeLoc,
+      paymentOpt: this.listingForm.value.paymentOpt,
+      // listingPhotos: this.listingForm.value.listingPhotos
+      })
+      .then(res => {
+        console.log(res);
+        this.listingForm.reset();
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }
+    if(this.listingForm.value.category == "electronics")
+    {
+      this.firestore.collection('electronics').add({
+      category: this.listingForm.value.category,
+      type: this.listingForm.value.electronicsElements.type,
+      model: this.listingForm.value.electronicsElements.model,
+      length: this.listingForm.value.electronicsElements.length,
+      width: this.listingForm.value.electronicsElements.width,
+      height: this.listingForm.value.electronicsElements.height,
+      weight: this.listingForm.value.electronicsElements.weight,
+      description: this.listingForm.value.description,
+      price: this.listingForm.value.price,
+      itemStatus: this.listingForm.value.itemStatus,
+      exchangeLoc: this.listingForm.value.exchangeLoc,
+      paymentOpt: this.listingForm.value.paymentOpt,
+      // listingPhotos: this.listingForm.value.listingPhotos
+      })
+      .then(res => {
+        console.log(res);
+        this.listingForm.reset();
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }
+    if(this.listingForm.value.category == "sportsgear")
+    {
+      this.firestore.collection('sportsgear').add({
+      category: this.listingForm.value.category,
+      type: this.listingForm.value.sportsGearElements.type,
+      weight: this.listingForm.value.sportsGearElements.weight,
+      description: this.listingForm.value.description,
+      price: this.listingForm.value.price,
+      itemStatus: this.listingForm.value.itemStatus,
+      exchangeLoc: this.listingForm.value.exchangeLoc,
+      paymentOpt: this.listingForm.value.paymentOpt,
+      // listingPhotos: this.listingForm.value.listingPhotos
+      })
+      .then(res => {
+        console.log(res);
+        this.listingForm.reset();
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }  
   }
 }
-
-
-
