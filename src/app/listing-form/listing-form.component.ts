@@ -21,8 +21,8 @@ export class ListingFormComponent {
 
   //Grouping the Listing Form under the same attributes
 
-  listingForm = new FormGroup(
-    { category: new FormControl(['']),
+  listingForm = new FormGroup({
+      category: new FormControl(['']),
       title: new FormControl(''),
       description: new FormControl(''),
       price: new FormControl(''),
@@ -89,9 +89,9 @@ export class ListingFormComponent {
   onSubmit() { 
     this.firestore.collection('books').add({
       category: this.listingForm.value.category,
-      // title: this.listingForm.get('bookTitle').value,
-      // edition: this.listingForm.value.edition,
-      // courseNum:this.listingForm.value.courseNum,
+      title: this.listingForm.value.bookElements.bookTitle,
+      edition: this.listingForm.value.bookElements.edition,
+      courseNum:this.listingForm.value.bookElements.courseNum,
       description: this.listingForm.value.description,
       price: this.listingForm.value.price,
       itemStatus: this.listingForm.value.itemStatus,
@@ -99,15 +99,15 @@ export class ListingFormComponent {
       paymentOpt: this.listingForm.value.paymentOpt,
       // listingPhotos: this.listingForm.value.listingPhotos
 
-  })
-  .then(res => {
+    })
+    .then(res => {
       console.log(res);
       this.listingForm.reset();
-  })
-  .catch(e => {
+    })
+    .catch(e => {
       console.log(e);
-  })
-}
+    })
+  }
 }
 
 
