@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private firestore: AngularFirestore) {}
+  myArray: any[] = []
   ngOnInit(): void {
+    this.firestore
+  .collection("items")
+  .get()
+  .subscribe((ss) => {
+    ss.docs.forEach((doc) => {
+      this.myArray.push(doc.data());
+    });
+  });
   }
 
 }
