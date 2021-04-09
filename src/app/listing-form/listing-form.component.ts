@@ -4,8 +4,9 @@ import { FormGroup, Validators } from '@angular/forms';
 import {FormBuilder,  FormControl} from '@angular/forms';
 import 'jquery';
 import * as $ from "jquery";
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
 import {AngularFireStorage} from '@angular/fire/storage';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-listing-form',
@@ -18,10 +19,9 @@ export class ListingFormComponent {
   //Creating a FormBuilder
   //Creating a FormBuilder
   filePath:String | undefined;
-  constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage) {}
+  constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage, private authService: AuthService) {}
 
   //Grouping the Listing Form under the same attributes
-
   listingForm = new FormGroup({
       category: new FormControl(['']),
       title: new FormControl(''),
@@ -90,14 +90,15 @@ export class ListingFormComponent {
   upload(event: any) {    
     this.filePath = event.target.files[0]
   }
-  uploadImage(random: number){
+  uploadImage(random: number, userID: string | undefined){
     console.log(this.filePath)
-    this.afStorage.upload('/imagestest2/'+random, this.filePath);
+    this.afStorage.upload('/'+userID+'/'+random, this.filePath);
     //upload('/(user's ID or email)/+random number')
   }
 
   onSubmit() {
     let random: number = Math.random();
+    let userID: string | undefined = this.authService.getUser();
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({
@@ -110,7 +111,8 @@ export class ListingFormComponent {
       itemStatus: this.listingForm.value.itemStatus,
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
-      listingPhotos: random
+      listingPhotos: random,
+      uid: userID
       })
       .then(res => {
         console.log(res);
@@ -119,8 +121,7 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-
-      this.uploadImage(random);
+      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "clothing")
     {
@@ -134,7 +135,8 @@ export class ListingFormComponent {
       itemStatus: this.listingForm.value.itemStatus,
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
-      // listingPhotos: this.listingForm.value.listingPhotos
+      listingPhotos: random,
+      uid: userID
       })
       .then(res => {
         console.log(res);
@@ -143,6 +145,7 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
+      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "furniture")
     {
@@ -159,7 +162,8 @@ export class ListingFormComponent {
       itemStatus: this.listingForm.value.itemStatus,
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
-      // listingPhotos: this.listingForm.value.listingPhotos
+      listingPhotos: random,
+      uid: userID
       })
       .then(res => {
         console.log(res);
@@ -168,6 +172,7 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
+      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "electronics")
     {
@@ -184,7 +189,8 @@ export class ListingFormComponent {
       itemStatus: this.listingForm.value.itemStatus,
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
-      // listingPhotos: this.listingForm.value.listingPhotos
+      listingPhotos: random,
+      uid: userID
       })
       .then(res => {
         console.log(res);
@@ -193,6 +199,7 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
+      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "sportsgear")
     {
@@ -205,7 +212,8 @@ export class ListingFormComponent {
       itemStatus: this.listingForm.value.itemStatus,
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
-      // listingPhotos: this.listingForm.value.listingPhotos
+      listingPhotos: random,
+      uid: userID
       })
       .then(res => {
         console.log(res);
@@ -214,6 +222,7 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
+      this.uploadImage(random, userID);
     }  
   }
 }
