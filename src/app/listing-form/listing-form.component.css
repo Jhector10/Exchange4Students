@@ -68,7 +68,7 @@ input[formControlName="price"] {
 }
 
 input[formControlName="length"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
   border: 1px solid #aaa;
@@ -76,7 +76,7 @@ input[formControlName="length"] {
 }
 
 input[formControlName="width"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
   border: 1px solid #aaa;
@@ -84,7 +84,7 @@ input[formControlName="width"] {
 }
 
 input[formControlName="height"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
   border:1px solid #aaa;
@@ -92,7 +92,7 @@ input[formControlName="height"] {
 }
 
 input[formControlName="weight"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
   border: 1px solid #aaa;
