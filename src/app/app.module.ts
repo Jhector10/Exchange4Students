@@ -27,7 +27,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
 
 import { AddListingPageComponent } from './add-listing-page/add-listing-page.component';
