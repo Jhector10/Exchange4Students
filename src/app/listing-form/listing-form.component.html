@@ -5,41 +5,41 @@
         <img id="images" src="http://placehold.it/180" alt="listing image" required/> 
 
         <!-- Book Elements in Preview-->
-        <p *ngIf="listingForm.value.bookElements.bookTitle">Book Title: {{this.listingForm.value.bookElements.bookTitle}}</p> 
-        <p *ngIf="listingForm.value.bookElements.edition">Edition: {{this.listingForm.value.bookElements.edition}}</p> 
-        <p *ngIf="listingForm.value.bookElements.courseNum">Course Number: {{this.listingForm.value.bookElements.courseNum}}</p> 
+        <p *ngIf="listingForm.value.bookElements.bookTitle"><strong>Book Title: </strong>{{this.listingForm.value.bookElements.bookTitle}}</p> 
+        <p *ngIf="listingForm.value.bookElements.edition"><strong>Edition: </strong>{{this.listingForm.value.bookElements.edition}}</p> 
+        <p *ngIf="listingForm.value.bookElements.courseNum"><strong>Course Number: </strong>{{this.listingForm.value.bookElements.courseNum}}</p> 
 
         <!-- Clothing Elements in Preview-->
-        <p *ngIf="listingForm.value.clothingElements.type">Type: {{this.listingForm.value.clothingElements.type}}</p> 
-        <p *ngIf="listingForm.value.clothingElements.color">Color: {{this.listingForm.value.clothingElements.color}}</p> 
-        <p *ngIf="listingForm.value.clothingElements.size">Size: {{this.listingForm.value.clothingElements.size}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.type"><strong>Type: </strong>{{this.listingForm.value.clothingElements.type}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.color"><strong>Color: </strong>{{this.listingForm.value.clothingElements.color}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.size"><strong>Size:</strong> {{this.listingForm.value.clothingElements.size}}</p> 
 
         <!-- Furniture Elements in Preview-->
-        <p *ngIf="listingForm.value.furnitureElements.type">Type: {{this.listingForm.value.furnitureElements.type}}</p> 
-        <p *ngIf="listingForm.value.furnitureElements.color">Color: {{this.listingForm.value.furnitureElements.color}}</p> 
-        <p *ngIf="listingForm.value.furnitureElements.length">Length: {{this.listingForm.value.furnitureElements.length}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.width">Width: {{this.listingForm.value.furnitureElements.width}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.Height">Height: {{this.listingForm.value.furnitureElements.height}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.weight">Weight: {{this.listingForm.value.furnitureElements.weight}} lb.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.type"><strong>Type: </strong>{{this.listingForm.value.furnitureElements.type}}</p> 
+        <p *ngIf="listingForm.value.furnitureElements.color"><strong>Color: </strong>{{this.listingForm.value.furnitureElements.color}}</p> 
+        <p *ngIf="listingForm.value.furnitureElements.length"><strong>Length:</strong> {{this.listingForm.value.furnitureElements.length}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.width"><strong>Width: </strong>{{this.listingForm.value.furnitureElements.width}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.Height"><strong>Height: </strong>{{this.listingForm.value.furnitureElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.weight"><strong>Weight: </strong>{{this.listingForm.value.furnitureElements.weight}} lb.</p> 
 
         <!-- Electronics Elements in Preview-->
-        <p *ngIf="listingForm.value.electronicsElements.type">Type: {{this.listingForm.value.electronicsElements.type}}</p> 
-        <p *ngIf="listingForm.value.electronicsElements.model">Model: {{this.listingForm.value.electronicsElements.model}}</p> 
-        <p *ngIf="listingForm.value.electronicsElements.length">Length: {{this.listingForm.value.electronicsElements.length}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.width">Width: {{this.listingForm.value.electronicsElements.width}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.Height">Height: {{this.listingForm.value.electronicsElements.height}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.weight">Weight: {{this.listingForm.value.electronicsElements.weight}} lb.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.type"><strong>Type: </strong>{{this.listingForm.value.electronicsElements.type}}</p> 
+        <p *ngIf="listingForm.value.electronicsElements.model"><strong>Model:</strong> {{this.listingForm.value.electronicsElements.model}}</p> 
+        <p *ngIf="listingForm.value.electronicsElements.length"><strong>Length: </strong>{{this.listingForm.value.electronicsElements.length}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.width"><strong>Width: </strong>{{this.listingForm.value.electronicsElements.width}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.Height"><strong>Height: </strong>{{this.listingForm.value.electronicsElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.weight"><strong>Weight: </strong>{{this.listingForm.value.electronicsElements.weight}} lb.</p> 
 
         <!-- Sportsgear Elements in Preview-->
-        <p *ngIf="listingForm.value.sportsGearElements.type">Type: {{this.listingForm.value.sportsGearElements.type}}</p> 
-        <p *ngIf="listingForm.value.sportsGearElements.weight">Weight: {{this.listingForm.value.sportsGearElements.weight}} lb.</p> 
+        <p *ngIf="listingForm.value.sportsGearElements.type"><strong>Type: </strong>{{this.listingForm.value.sportsGearElements.type}}</p> 
+        <p *ngIf="listingForm.value.sportsGearElements.weight"><strong>Weight: </strong>{{this.listingForm.value.sportsGearElements.weight}} lb.</p> 
 
-        <p>Description: {{this.listingForm.value.description}}</p>
-        <p>Price: ${{this.listingForm.value.price}}</p> 
+        <p><strong>Description: </strong>{{this.listingForm.value.description}}</p>
+        <p><strong>Price:</strong> ${{this.listingForm.value.price}}</p> 
         
-        <p>Item Status: {{this.listingForm.value.itemStatus}}</p>
-        <p>Exchange Location: {{this.listingForm.value.exchangeLoc}}</p>
-        <p>Payment Option: {{this.listingForm.value.paymentOpt}}</p>
+        <p><strong>Item Status: </strong>{{this.listingForm.value.itemStatus}}</p>
+        <p><strong>Exchange Location: </strong>{{this.listingForm.value.exchangeLoc}}</p>
+        <p><strong>Payment Option:</strong> {{this.listingForm.value.paymentOpt}}</p>
     </div>
 
     <form [formGroup] = "listingForm">
