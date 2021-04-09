@@ -42,7 +42,7 @@
         <p><strong>Payment Option:</strong> {{this.listingForm.value.paymentOpt}}</p>
     </div>
 
-    <form [formGroup] = "listingForm" (ngSubmit)="onSubmit()">
+    <form [formGroup] = "listingForm">
         <label for="category">Select a Listing Category</label> <br>
             <select id="category" formControlName="category">
                 <option value="" disabled selected hidden>Item Category</option>
@@ -133,10 +133,10 @@
         </label>
     <br>
     <label for="listingphotos">Upload photo of item:</label> <br>
-        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos">
+        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos" (change)="upload($event)" accept=".png,.jpg">
   
     <br>
-        <button type="submit" [disabled]="!listingForm.valid">Post Listing</button>
+        <button type="submit" (click)="onSubmit()">Post Listing</button>
     </form>
 
     

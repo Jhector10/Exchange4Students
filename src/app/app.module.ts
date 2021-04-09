@@ -26,12 +26,17 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './search/search.component';
+
 import { AddListingPageComponent } from './add-listing-page/add-listing-page.component';
 import { BookPageComponent } from './book-page/book-page.component';
 import { ClothingPageComponent } from './clothing-page/clothing-page.component';
 import { FurniturePageComponent } from './furniture-page/furniture-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
+
 
 
 @NgModule({
@@ -45,7 +50,8 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
     ClothingPageComponent, 
     FurniturePageComponent, 
     ElectronicsPageComponent, 
-    SportsPageComponent 
+    SportsPageComponent,
+    SearchComponent 
   ],
   imports: [
     BrowserModule,
@@ -71,7 +77,8 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [ AuthService ],
   bootstrap: [ AppComponent ]
