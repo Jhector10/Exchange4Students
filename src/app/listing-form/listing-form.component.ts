@@ -5,6 +5,7 @@ import {FormBuilder,  FormControl} from '@angular/forms';
 import 'jquery';
 import * as $ from "jquery";
 import { AngularFirestore } from "@angular/fire/firestore";
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-listing-form',
@@ -16,8 +17,8 @@ import { AngularFirestore } from "@angular/fire/firestore";
 export class ListingFormComponent {
   //Creating a FormBuilder
   //Creating a FormBuilder
-  
-  constructor(private firestore: AngularFirestore) {}
+  filePath:String | undefined;
+  constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage) {}
 
   //Grouping the Listing Form under the same attributes
 
@@ -86,7 +87,17 @@ export class ListingFormComponent {
 
   submitted = false;
 
+  upload(event: any) {    
+    this.filePath = event.target.files[0]
+  }
+  uploadImage(random: number){
+    console.log(this.filePath)
+    this.afStorage.upload('/imagestest2/'+random, this.filePath);
+    //upload('/(user's ID or email)/+random number')
+  }
+
   onSubmit() {
+    let random: number = Math.random();
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({
@@ -99,7 +110,7 @@ export class ListingFormComponent {
       itemStatus: this.listingForm.value.itemStatus,
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
-      // listingPhotos: this.listingForm.value.listingPhotos
+      listingPhotos: random
       })
       .then(res => {
         console.log(res);
@@ -108,6 +119,8 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
+
+      this.uploadImage(random);
     }
     if(this.listingForm.value.category == "clothing")
     {
