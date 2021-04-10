@@ -1,7 +1,8 @@
 <div *ngFor="let doc of myArray" id = "listing-preview">
-    <img id="images" (src)="getPhoto(doc.uid,doc.listingPhotos)" alt="listing image" required/> 
+    <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image" required/> 
 
     <!-- Book Elements in Preview-->
+    <p><strong>UID: </strong>{{doc.uid}}</p> 
     <p><strong>Book Title: </strong>{{doc.title}}</p> 
     <p><strong>Edition: </strong>{{doc.edition}}</p> 
     <p><strong>Course Number: </strong>{{doc.courseNum}}</p> 
