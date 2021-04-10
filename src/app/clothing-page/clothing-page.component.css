@@ -1,0 +1,55 @@
+.listing {
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 5px #bbb;
+    border-radius: 4px;
+    width: 1000px;
+    height: auto;
+}
+.content {
+    float: left;
+    margin-left: 10px;
+}
+.photo {
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+img {
+    width: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    float: left;
+  }
+
+h1{
+    text-align: center;
+    padding: 50px 0px;
+    font-size: 30px;
+}
+
+h2 {
+display: inline;
+}
+
+h4{
+    display: inline;
+    font-size: large;
+    float: right;
+}
+p{
+    display: inline-block;
+}
+
+.button {
+    background-color: #b71c1c;
+    color: white;
+    font-size: medium;
+    display: inline;
+    margin-top: -10px;
+    float: right;
+}

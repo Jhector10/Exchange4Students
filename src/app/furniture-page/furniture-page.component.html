@@ -1,19 +1,30 @@
-<div *ngFor="let doc of myArray" id = "listing-preview">
-    <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image" required/> 
-
-    <!-- Book Elements in Preview-->
-    <p><strong>UID: </strong>{{doc.uid}}</p> 
+<h1>Furniture for Sale</h1>
+<div class="listing media" div *ngFor="let doc of myArray" id = "listing-preview">
+    <div class="photo">
+        <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image"/> 
+    </div>
+    <!-- Furniture Elements in Preview-->
+    <div class="content media-body">
+    <h2><strong>{{doc.listingTitle}}</strong></h2> 
+    <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <br>
     <p><strong>Type: </strong>{{doc.type}}</p> 
+        <br>
     <p><strong>Color: </strong>{{doc.color}}</p> 
-    <p><strong>Length: </strong>{{doc.length}}</p>
-    <p><strong>Width: </strong>{{doc.width}}</p> 
-    <p><strong>Height: </strong>{{doc.height}}</p> 
-    <p><strong>Weight: </strong>{{doc.weight}}</p>   
-
-    <p><strong>Description: </strong>{{doc.description}}</p>
-    <p><strong>Price:</strong> ${{doc.price}}</p> 
-    
+    <br>
+    <p><strong>Length: </strong>{{doc.length}} in. <strong>Width: </strong>{{doc.width}} in. <strong> Height: </strong>{{doc.height}} in. </p> 
+    <br>
+    <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+        <br>
+    <p><strong>Description: </strong>{{doc.description}}</p> 
+        <br>
     <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-    <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}</p>
-    <p><strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
+    <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
+    <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
+    <p><strong>Seller: </strong>{{doc.email}}</p>
+        
+    <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+</div>
 </div>
