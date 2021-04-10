@@ -1,23 +1,27 @@
 <h1>Books for Sale</h1>
 <div class="listing media" *ngFor="let doc of myArray" id = "listing-preview">
     <div class="photo">
-        <img class="center d-flex mr-3" id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image"/> 
+        <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image"/> 
     </div>
+    
     <div class="content media-body">
         <!-- Book Elements in Preview-->
-        <p><strong>UID: </strong>{{doc.uid}}</p> 
+        
+        <h2><strong>{{doc.listingTitle}}</strong></h2> 
+        <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <br>
         <p><strong>Book Title: </strong>{{doc.title}}</p> 
+        <br>
         <p><strong>Edition: </strong>{{doc.edition}}<strong> Course Number: </strong>{{doc.courseNum}}</p> 
-        <p></p> 
-
+        <br>
         <p><strong>Description: </strong>{{doc.description}}</p> 
-
+        <br>
         <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+        <br>
         <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}<strong> Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
         <p><strong>Seller: </strong>{{doc.email}}</p>
-        <div class="price">
-            <p><strong>Price:</strong> ${{doc.price}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
-        </div>
+        
+        <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
     </div>        
 </div>
