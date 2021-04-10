@@ -114,12 +114,18 @@ input[type=file]{
 p{
   display: block;
   margin: 3px;
+  line-height: 15px;
+}
+
+h4{
+  line-height: 25px;
+  margin-bottom: 0px;
 }
 
 #listing-preview{ 
   position: absolute;
   margin: 10px 350px;
-  width:400px;
+  width:500px;
   text-align: left;
   display: inline-block;
   border:1px solid #aaa;
