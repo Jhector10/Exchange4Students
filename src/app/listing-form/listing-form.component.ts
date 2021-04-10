@@ -99,6 +99,7 @@ export class ListingFormComponent {
   onSubmit() {
     let random: number = Math.random();
     let userID: string | undefined = this.authService.getUser();
+    let userEmail: string | null | undefined = this.authService.getEmail();
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({
@@ -112,7 +113,8 @@ export class ListingFormComponent {
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
-      uid: userID
+      uid: userID,
+      email: userEmail
       })
       .then(res => {
         console.log(res);

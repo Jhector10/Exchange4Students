@@ -67,4 +67,9 @@ export class AuthService {
     {
         return firebase.auth().currentUser?.uid
     }
+
+    public getEmail()
+    {
+        return firebase.auth().currentUser?.email
+    }
 }
