@@ -1,0 +1,31 @@
+.listing {
+    border-style: solid;
+    border-color: black;
+    margin: auto;
+    width: 80%;
+}
+.content {
+    display: block;
+    border-style: solid;
+    border-color: blue;
+    width: 75%;
+    float: right;
+}
+.photo {
+    border-style: solid;
+    border-color: red;
+    width: 25%;
+    float: left;
+}
+.center {
+    display: block;
+    margin: auto;
+}
+.price {
+    text-align: right;
+}
+.button {
+    background-color: #b71c1c;
+    color: white;
+    font-size: medium;
+}

@@ -19,7 +19,7 @@
         <p *ngIf="listingForm.value.furnitureElements.color"><strong>Color: </strong>{{this.listingForm.value.furnitureElements.color}}</p> 
         <p *ngIf="listingForm.value.furnitureElements.length"><strong>Length:</strong> {{this.listingForm.value.furnitureElements.length}} in.</p> 
         <p *ngIf="listingForm.value.furnitureElements.width"><strong>Width: </strong>{{this.listingForm.value.furnitureElements.width}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.Height"><strong>Height: </strong>{{this.listingForm.value.furnitureElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.height"><strong>Height: </strong>{{this.listingForm.value.furnitureElements.height}} in.</p> 
         <p *ngIf="listingForm.value.furnitureElements.weight"><strong>Weight: </strong>{{this.listingForm.value.furnitureElements.weight}} lb.</p> 
 
         <!-- Electronics Elements in Preview-->
@@ -27,7 +27,7 @@
         <p *ngIf="listingForm.value.electronicsElements.model"><strong>Model:</strong> {{this.listingForm.value.electronicsElements.model}}</p> 
         <p *ngIf="listingForm.value.electronicsElements.length"><strong>Length: </strong>{{this.listingForm.value.electronicsElements.length}} in.</p> 
         <p *ngIf="listingForm.value.electronicsElements.width"><strong>Width: </strong>{{this.listingForm.value.electronicsElements.width}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.Height"><strong>Height: </strong>{{this.listingForm.value.electronicsElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.height"><strong>Height: </strong>{{this.listingForm.value.electronicsElements.height}} in.</p> 
         <p *ngIf="listingForm.value.electronicsElements.weight"><strong>Weight: </strong>{{this.listingForm.value.electronicsElements.weight}} lb.</p> 
 
         <!-- Sportsgear Elements in Preview-->
@@ -42,7 +42,7 @@
         <p><strong>Payment Option:</strong> {{this.listingForm.value.paymentOpt}}</p>
     </div>
 
-    <form [formGroup] = "listingForm" (ngSubmit)="onSubmit()">
+    <form [formGroup] = "listingForm">
         <label for="category">Select a Listing Category</label> <br>
             <select id="category" formControlName="category">
                 <option value="" disabled selected hidden>Item Category</option>
@@ -136,10 +136,10 @@
         </label>
     <br>
     <label for="listingphotos">Upload photo of item:</label> <br>
-        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos">
+        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos" (change)="upload($event)" accept=".png,.jpg">
   
     <br>
-        <button type="submit" [disabled]="!listingForm.valid">Post Listing</button>
+        <button type="submit" (click)="onSubmit()">Post Listing</button>
     </form>
 
     

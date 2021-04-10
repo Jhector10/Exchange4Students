@@ -62,4 +62,14 @@ export class AuthService {
         };
         return userRef.set(data, { merge: true });
     }
+
+    public getUser()
+    {
+        return firebase.auth().currentUser?.uid
+    }
+
+    public getEmail()
+    {
+        return firebase.auth().currentUser?.email
+    }
 }

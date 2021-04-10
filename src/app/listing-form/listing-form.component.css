@@ -1,10 +1,10 @@
-/* TO DO: figure out why css file is not working with HTML of component */
-
 select{
   border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #eee;
+  padding: 3px;
 }
 
-  /* TO DO: figure out why css file is not working with HTML of component */
 .specific-elements{
   display: none;
 }
@@ -46,15 +46,19 @@ button[type=submit]:hover {
 
 textarea {
   width: 300px;
+  border-radius: 4px;
   padding: 12px;
   margin: 3px 0;
   border: 1px solid #aaa;
+  box-shadow: 2px 2px 2px #eee inset;
 }
 
 input[type=text] {
   width: 300px;
   padding: 5px;
   margin: 3px 0;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #eee inset;
   box-sizing: border-box;
   border: 1px solid #aaa;
 }
@@ -63,38 +67,48 @@ input[formControlName="price"] {
   width: 100px;
   padding: 5px 5px 5px 15px;
   margin: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #eee inset;
   border: 1px solid #aaa;
   box-sizing: border-box;
 }
 
 input[formControlName="length"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #eee inset;
   border: 1px solid #aaa;
   box-sizing: border-box;
 }
 
 input[formControlName="width"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #eee inset;
   border: 1px solid #aaa;
   box-sizing: border-box;
 }
 
 input[formControlName="height"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #eee inset;
   border:1px solid #aaa;
   box-sizing: border-box;
 }
 
 input[formControlName="weight"] {
-  width: 100px;
+  width: 70px;
   padding: 5px 5px 5px 15px;
   margin: 3px 0px;
+  box-shadow: 2px 2px 2px #eee inset;
+  border-radius: 4px;
   border: 1px solid #aaa;
   box-sizing: border-box;
 }
@@ -126,9 +140,11 @@ h4{
   position: absolute;
   margin: 10px 350px;
   width:500px;
+  border-radius: 4px;
   text-align: left;
   display: inline-block;
   border:1px solid #aaa;
+  box-shadow: 2px 2px 2px #eee;
 }
 
 img {
