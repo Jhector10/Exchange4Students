@@ -1,16 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
-
 @Component({
-  selector: 'app-navigation-bar',
-  templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class NavigationBarComponent implements OnInit {
+export class HomeComponent implements OnInit {
+
 
   @Output() isSignOut = new EventEmitter<void>()
-  @Output() isListingPage = new EventEmitter<void>()
   constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
@@ -19,4 +18,5 @@ export class NavigationBarComponent implements OnInit {
     this.auth.signOut()
     this.isSignOut.emit()
   }
+
 }
