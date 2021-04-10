@@ -1,1 +1,15 @@
-<p>book-page works!</p>
+<div *ngFor="let doc of myArray" id = "listing-preview">
+    <img id="images" (src)="getPhoto(doc.uid,doc.listingPhotos)" alt="listing image" required/> 
+
+    <!-- Book Elements in Preview-->
+    <p><strong>Book Title: </strong>{{doc.title}}</p> 
+    <p><strong>Edition: </strong>{{doc.edition}}</p> 
+    <p><strong>Course Number: </strong>{{doc.courseNum}}</p> 
+
+    <p><strong>Description: </strong>{{doc.description}}</p>
+    <p><strong>Price:</strong> ${{doc.price}}</p> 
+    
+    <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+    <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}</p>
+    <p><strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+</div>
