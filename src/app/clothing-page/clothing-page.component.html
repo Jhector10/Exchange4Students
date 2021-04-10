@@ -1,1 +1,17 @@
-<p>clothing-page works!</p>
+<div *ngFor="let doc of myArray" id = "listing-preview">
+    <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image" required/> 
+
+    <!-- Book Elements in Preview-->
+    <p><strong>UID: </strong>{{doc.uid}}</p> 
+    <p><strong>Type: </strong>{{doc.type}}</p> 
+    <p><strong>Color: </strong>{{doc.color}}</p> 
+    <p><strong>Size: </strong>{{doc.size}}</p> 
+
+    <p><strong>Description: </strong>{{doc.description}}</p>
+    <p><strong>Price:</strong> ${{doc.price}}</p> 
+    
+    <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+    <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}</p>
+    <p><strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+</div>
+
