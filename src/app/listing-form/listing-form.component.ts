@@ -24,7 +24,7 @@ export class ListingFormComponent {
   //Grouping the Listing Form under the same attributes
   listingForm = new FormGroup({
       category: new FormControl(['']),
-      title: new FormControl(''),
+      listingTitle: new FormControl(''),
       description: new FormControl(''),
       price: new FormControl(''),
       itemStatus: new FormControl(''),
@@ -103,8 +103,9 @@ export class ListingFormComponent {
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({
+      listingTitle: this.listingForm.value.listingTitle,
       category: this.listingForm.value.category,
-      title: this.listingForm.value.bookElements.bookTitle,
+      bookTitle: this.listingForm.value.bookElements.bookTitle,
       edition: this.listingForm.value.bookElements.edition,
       courseNum:this.listingForm.value.bookElements.courseNum,
       description: this.listingForm.value.description,
@@ -128,6 +129,7 @@ export class ListingFormComponent {
     if(this.listingForm.value.category == "clothing")
     {
       this.firestore.collection('clothing').add({
+      listingTitle: this.listingForm.value.listingTitle,
       category: this.listingForm.value.category,
       type:this.listingForm.value.clothingElements.type,
       color: this.listingForm.value.clothingElements.color,
@@ -138,7 +140,8 @@ export class ListingFormComponent {
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
-      uid: userID
+      uid: userID,
+      email: userEmail
       })
       .then(res => {
         console.log(res);
@@ -152,6 +155,7 @@ export class ListingFormComponent {
     if(this.listingForm.value.category == "furniture")
     {
       this.firestore.collection('furniture').add({
+      listingTitle: this.listingForm.value.listingTitle,
       category: this.listingForm.value.category,
       type: this.listingForm.value.furnitureElements.type,
       color: this.listingForm.value.furnitureElements.color,
@@ -165,7 +169,8 @@ export class ListingFormComponent {
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
-      uid: userID
+      uid: userID,
+      email: userEmail
       })
       .then(res => {
         console.log(res);
@@ -179,6 +184,7 @@ export class ListingFormComponent {
     if(this.listingForm.value.category == "electronics")
     {
       this.firestore.collection('electronics').add({
+      listingTitle: this.listingForm.value.listingTitle,
       category: this.listingForm.value.category,
       type: this.listingForm.value.electronicsElements.type,
       model: this.listingForm.value.electronicsElements.model,
@@ -192,7 +198,8 @@ export class ListingFormComponent {
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
-      uid: userID
+      uid: userID,
+      email: userEmail
       })
       .then(res => {
         console.log(res);
@@ -206,6 +213,7 @@ export class ListingFormComponent {
     if(this.listingForm.value.category == "sportsgear")
     {
       this.firestore.collection('sportsgear').add({
+      listingTitle: this.listingForm.value.listingTitle,
       category: this.listingForm.value.category,
       type: this.listingForm.value.sportsGearElements.type,
       weight: this.listingForm.value.sportsGearElements.weight,
@@ -215,7 +223,8 @@ export class ListingFormComponent {
       exchangeLoc: this.listingForm.value.exchangeLoc,
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
-      uid: userID
+      uid: userID,
+      email: userEmail
       })
       .then(res => {
         console.log(res);
