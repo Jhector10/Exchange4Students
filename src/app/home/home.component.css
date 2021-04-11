@@ -54,3 +54,7 @@ p{
     margin-top: -10px;
     float: right;
 }
+
+form {
+    text-align: center;
+}

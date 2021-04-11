@@ -116,7 +116,7 @@ export class ListingFormComponent {
     let userID: string | undefined = this.authService.getUser();
     let userEmail: string | null | undefined = this.authService.getEmail();
     this.uploadImage(random, userID);
-    await this.delay(5000);
+    await this.delay(2000);
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({

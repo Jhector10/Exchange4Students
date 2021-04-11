@@ -1,7 +1,10 @@
-<p>This is the home page</p>
-
 <h1>All Listings for Sale</h1>
-<input class="form-control mr-sm-2" type="text" name="" id="textBoxSearch" placeholder="Search">
+<div>
+<form [formGroup]="searchForm">
+    <input type="text" formControlName="searchValue" placeholder="Search">
+    <button (click)="searchListings()"><mdb-icon fas icon="search"></mdb-icon></button>
+</form>
+</div>
 
 <br>
 <div class="listing media" *ngFor="let doc of myArray" id = "listing-preview">

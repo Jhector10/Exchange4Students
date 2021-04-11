@@ -21,7 +21,8 @@ export class AuthService {
 
     constructor(
         public afAuth: AngularFireAuth,
-        public afs: AngularFirestore, ) {
+        public afs: AngularFirestore,
+        public router: Router ) {
         // Get auth data, then get firestore user document || null
 
         this.user$ = this.afAuth.authState.pipe(
@@ -46,6 +47,7 @@ export class AuthService {
     }
 
     async signOut(): Promise<void> {
+        this.router.navigate(['/'])
         return this.afAuth.signOut();
     }
 

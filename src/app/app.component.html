@@ -4,6 +4,7 @@
     <div *ngIf="auth.user$ | async as user; else signIn" fxLayout="column" fxFlex="100">
       
         <app-navigation-bar></app-navigation-bar>
+
       <!-- <pre>{{user | json}}</pre> -->
     </div>
   

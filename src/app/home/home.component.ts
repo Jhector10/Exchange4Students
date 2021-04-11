@@ -2,6 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { SearchComponent } from '../search/search.component';
+import {FormGroup,  FormControl} from '@angular/forms';
+import 'jquery';
+import * as $ from "jquery";
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +18,12 @@ export class HomeComponent implements OnInit {
 
   myArray: any[] = []
 
+  searchForm = new FormGroup({
+    searchValue: new FormControl('')
+  })
+
   ngOnInit(): void {
+    
     this.firestore
     .collection("books")
     .get()
@@ -59,8 +68,87 @@ export class HomeComponent implements OnInit {
         this.myArray.push(doc.data());
       });
     });
-
     
+    
+
+    $(document).ready(function(){
+      $("#category").change(function(){
+        $(this).find("option:selected").each(function(){
+              let optionValue = $(this).attr("value");
+              if(optionValue){
+                $(".specific-elements").not("." + optionValue).hide();
+                $("." + optionValue).show();
+              } else{
+                $(".specific-elements").hide();
+              }
+          });
+      }).change();
+    });
   }
-  
+
+  searchListings()
+  {
+    this.myArray = [];
+    const db = firebase.firestore();
+    db.collection('books').where("listingTitle", "==", this.searchForm.value.searchValue)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.myArray.push(doc.data());
+          console.log(doc.id, " => ", doc.data());
+        });
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+    db.collection('clothing').where("listingTitle", "==", this.searchForm.value.searchValue)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.myArray.push(doc.data());
+          console.log(doc.id, " => ", doc.data());
+        });
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+    db.collection('furniture').where("listingTitle", "==", this.searchForm.value.searchValue)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.myArray.push(doc.data());
+          console.log(doc.id, " => ", doc.data());
+        });
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+    db.collection('electronics').where("listingTitle", "==", this.searchForm.value.searchValue)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.myArray.push(doc.data());
+          console.log(doc.id, " => ", doc.data());
+        });
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+    db.collection('sportsgear').where("listingTitle", "==", this.searchForm.value.searchValue)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.myArray.push(doc.data());
+          console.log(doc.id, " => ", doc.data());
+        });
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+  }
 }
