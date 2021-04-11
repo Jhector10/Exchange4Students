@@ -1,1 +1,121 @@
-<app-navigation-bar></app-navigation-bar>
+<p>This is the home page</p>
+
+<h1>All Listings for Sale</h1>
+<input class="form-control mr-sm-2" type="text" id="textBoxSearch" placeholder="Search">
+<br>
+<div class="listing media" *ngFor="let doc of myArray" id = "listing-preview">
+
+    <div class="photo">
+        <img id="images" src={{doc.imageURL}} alt="listing image"/> 
+    </div>
+    
+    <!--Display Books-->
+    <div *ngIf="doc.category === 'book'" class="content media-body">
+        <!-- Book Elements in Preview-->
+        <h2><strong>{{doc.listingTitle}}</strong></h2> 
+        <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <br>
+        <p><strong>Book Title: </strong>{{doc.bookTitle}}</p> 
+        <br>
+        <p><strong>Edition: </strong>{{doc.edition}}<strong> Course Number: </strong>{{doc.courseNum}}</p> 
+        <br>
+        <p><strong>Description: </strong>{{doc.description}}</p> 
+        <br>
+        <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+        <br>
+        <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}<strong> Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
+        <p><strong>Seller: </strong>{{doc.email}}</p>
+        
+        <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+    </div>
+    
+    <!--Display Clothing-->
+    <div *ngIf="doc.category === 'clothing'" class="content media-body">
+        <!-- Book Elements in Preview-->
+        <h2><strong>{{doc.listingTitle}}</strong></h2> 
+        <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <br>
+        <p><strong>Type: </strong>{{doc.type}} <strong>Color: </strong>{{doc.color}}</p>
+        <br> 
+        <p><strong>Size: </strong>{{doc.size}}</p> 
+        <br>
+        <p><strong>Description: </strong>{{doc.description}}</p>
+        <br>
+        <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+        <br>
+        <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
+        <p><strong>Seller: </strong>{{doc.email}}</p>
+        <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+    </div>
+
+    <!--Display Furniture-->
+    <div *ngIf="doc.category === 'furniture'" class="content media-body">
+        <h2><strong>{{doc.listingTitle}}</strong></h2> 
+        <h4><strong>Price:</strong> ${{doc.price}}</h4>
+            <br>
+        <p><strong>Type: </strong>{{doc.type}}</p> 
+            <br>
+        <p><strong>Color: </strong>{{doc.color}}</p> 
+        <br>
+        <p><strong>Length: </strong>{{doc.length}} in. <strong>Width: </strong>{{doc.width}} in. <strong> Height: </strong>{{doc.height}} in. </p> 
+        <br>
+        <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+            <br>
+        <p><strong>Description: </strong>{{doc.description}}</p> 
+            <br>
+        <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+            <br>
+        <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
+        <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <br>
+        <p><strong>Seller: </strong>{{doc.email}}</p>
+            
+        <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+    </div>
+
+    <!--Display Electronics-->
+    <div *ngIf="doc.category === 'electronics'" class="content media-body">
+        <h2><strong>{{doc.listingTitle}}</strong></h2> 
+        <h4><strong>Price:</strong> ${{doc.price}}</h4>
+            <br>
+        <p><strong>Type: </strong>{{doc.type}}</p> 
+            <br>
+        <p><strong>Model: </strong>{{doc.model}}</p> 
+        <br>
+        <p><strong>Length: </strong>{{doc.length}} in. <strong>Width: </strong>{{doc.width}} in. <strong> Height: </strong>{{doc.height}} in. </p> 
+        <br>
+        <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+            <br>
+        <p><strong>Description: </strong>{{doc.description}}</p> 
+            <br>
+        <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+            <br>
+        <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
+        <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <br>
+        <p><strong>Seller: </strong>{{doc.email}}</p>
+        <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+    </div>
+
+    <!--Display Sports Gear-->
+    <div *ngIf="doc.category === 'sportsgear'" class="content media-body">
+        <h2><strong>{{doc.listingTitle}}</strong></h2> 
+        <h4><strong>Price:</strong> ${{doc.price}}</h4>
+            <br>
+        <p><strong>Type: </strong>{{doc.type}}</p> 
+            <br>
+        <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+            <br>
+        <p><strong>Description: </strong>{{doc.description}}</p> 
+            <br>
+        <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
+            <br>
+        <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
+        <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <br>
+        <p><strong>Seller: </strong>{{doc.email}}</p>
+        <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+    </div>
+</div>

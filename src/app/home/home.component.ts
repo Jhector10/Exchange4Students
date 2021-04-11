@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,54 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  constructor(private firestore: AngularFirestore) { }
 
-  @Output() isSignOut = new EventEmitter<void>()
-  constructor(public auth: AuthService) { }
+  myArray: any[] = []
 
   ngOnInit(): void {
-  }
-  signOut() {
-    this.auth.signOut()
-    this.isSignOut.emit()
-  }
+    this.firestore
+    .collection("books")
+    .get()
+    .subscribe((ss) => {
+      ss.docs.forEach((doc) => {
+        this.myArray.push(doc.data());
+      });
+    });
 
+    this.firestore
+    .collection("clothing")
+    .get()
+    .subscribe((ss) => {
+      ss.docs.forEach((doc) => {
+        this.myArray.push(doc.data());
+      });
+    });
+
+    this.firestore
+    .collection("furniture")
+    .get()
+    .subscribe((ss) => {
+      ss.docs.forEach((doc) => {
+        this.myArray.push(doc.data());
+      });
+    });
+
+    this.firestore
+    .collection("electronics")
+    .get()
+    .subscribe((ss) => {
+      ss.docs.forEach((doc) => {
+        this.myArray.push(doc.data());
+      });
+    });
+
+    this.firestore
+    .collection("sportsgear")
+    .get()
+    .subscribe((ss) => {
+      ss.docs.forEach((doc) => {
+        this.myArray.push(doc.data());
+      });
+    });
+  }
 }
