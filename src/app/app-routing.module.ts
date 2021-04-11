@@ -17,7 +17,8 @@ const routes: Routes = [
   {path: 'clothing-page', component: ClothingPageComponent},
   {path: 'furniture-page', component: FurniturePageComponent},
   {path: 'electronics-page', component: ElectronicsPageComponent},
-  {path: 'sports-page', component: SportsPageComponent}
+  {path: 'sports-page', component: SportsPageComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
