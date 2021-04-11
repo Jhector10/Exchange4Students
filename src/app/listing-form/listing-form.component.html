@@ -5,34 +5,34 @@
         <img id="images" src="http://placehold.it/180" alt="listing image" required/> 
         <!-- Book Elements in Preview-->
         <h4><strong>{{this.listingForm.value.listingTitle}}</strong></h4>
-        <p *ngIf="listingForm.value.bookElements.bookTitle"><strong>Book Title: </strong>{{this.listingForm.value.bookElements.bookTitle}}</p> 
-        <p *ngIf="listingForm.value.bookElements.edition"><strong>Edition: </strong>{{this.listingForm.value.bookElements.edition}}</p> 
-        <p *ngIf="listingForm.value.bookElements.courseNum"><strong>Course Number: </strong>{{this.listingForm.value.bookElements.courseNum}}</p> 
+        <p *ngIf="listingForm.value.bookElements.bookTitle && listingForm.value.category === 'book'"><strong>Book Title: </strong>{{this.listingForm.value.bookElements.bookTitle}}</p> 
+        <p *ngIf="listingForm.value.bookElements.edition && listingForm.value.category === 'book'"><strong>Edition: </strong>{{this.listingForm.value.bookElements.edition}}</p> 
+        <p *ngIf="listingForm.value.bookElements.courseNum && listingForm.value.category === 'book'"><strong>Course Number: </strong>{{this.listingForm.value.bookElements.courseNum}}</p> 
 
         <!-- Clothing Elements in Preview-->
-        <p *ngIf="listingForm.value.clothingElements.type"><strong>Type: </strong>{{this.listingForm.value.clothingElements.type}}</p> 
-        <p *ngIf="listingForm.value.clothingElements.color"><strong>Color: </strong>{{this.listingForm.value.clothingElements.color}}</p> 
-        <p *ngIf="listingForm.value.clothingElements.size"><strong>Size:</strong> {{this.listingForm.value.clothingElements.size}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.type && listingForm.value.category === 'clothing'"><strong>Type: </strong>{{this.listingForm.value.clothingElements.type}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.color && listingForm.value.category === 'clothing'"><strong>Color: </strong>{{this.listingForm.value.clothingElements.color}}</p> 
+        <p *ngIf="listingForm.value.clothingElements.size && listingForm.value.category === 'clothing'"><strong>Size:</strong> {{this.listingForm.value.clothingElements.size}}</p> 
 
         <!-- Furniture Elements in Preview-->
-        <p *ngIf="listingForm.value.furnitureElements.type"><strong>Type: </strong>{{this.listingForm.value.furnitureElements.type}}</p> 
-        <p *ngIf="listingForm.value.furnitureElements.color"><strong>Color: </strong>{{this.listingForm.value.furnitureElements.color}}</p> 
-        <p *ngIf="listingForm.value.furnitureElements.length"><strong>Length:</strong> {{this.listingForm.value.furnitureElements.length}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.width"><strong>Width: </strong>{{this.listingForm.value.furnitureElements.width}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.height"><strong>Height: </strong>{{this.listingForm.value.furnitureElements.height}} in.</p> 
-        <p *ngIf="listingForm.value.furnitureElements.weight"><strong>Weight: </strong>{{this.listingForm.value.furnitureElements.weight}} lb.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.type && listingForm.value.category === 'furniture'"><strong>Type: </strong>{{this.listingForm.value.furnitureElements.type}}</p> 
+        <p *ngIf="listingForm.value.furnitureElements.color && listingForm.value.category === 'furniture'"><strong>Color: </strong>{{this.listingForm.value.furnitureElements.color}}</p> 
+        <p *ngIf="listingForm.value.furnitureElements.length && listingForm.value.category === 'furniture'"><strong>Length:</strong> {{this.listingForm.value.furnitureElements.length}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.width && listingForm.value.category === 'furniture'"><strong>Width: </strong>{{this.listingForm.value.furnitureElements.width}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.height && listingForm.value.category === 'furniture'"><strong>Height: </strong>{{this.listingForm.value.furnitureElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.furnitureElements.weight && listingForm.value.category === 'furniture'"><strong>Weight: </strong>{{this.listingForm.value.furnitureElements.weight}} lb.</p> 
 
         <!-- Electronics Elements in Preview-->
-        <p *ngIf="listingForm.value.electronicsElements.type"><strong>Type: </strong>{{this.listingForm.value.electronicsElements.type}}</p> 
-        <p *ngIf="listingForm.value.electronicsElements.model"><strong>Model:</strong> {{this.listingForm.value.electronicsElements.model}}</p> 
-        <p *ngIf="listingForm.value.electronicsElements.length"><strong>Length: </strong>{{this.listingForm.value.electronicsElements.length}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.width"><strong>Width: </strong>{{this.listingForm.value.electronicsElements.width}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.height"><strong>Height: </strong>{{this.listingForm.value.electronicsElements.height}} in.</p> 
-        <p *ngIf="listingForm.value.electronicsElements.weight"><strong>Weight: </strong>{{this.listingForm.value.electronicsElements.weight}} lb.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.type && listingForm.value.category === 'electronics'"><strong>Type: </strong>{{this.listingForm.value.electronicsElements.type}}</p> 
+        <p *ngIf="listingForm.value.electronicsElements.model && listingForm.value.category === 'electronics'"><strong>Model:</strong> {{this.listingForm.value.electronicsElements.model}}</p> 
+        <p *ngIf="listingForm.value.electronicsElements.length && listingForm.value.category === 'electronics'"><strong>Length: </strong>{{this.listingForm.value.electronicsElements.length}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.width && listingForm.value.category === 'electronics'"><strong>Width: </strong>{{this.listingForm.value.electronicsElements.width}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.height && listingForm.value.category === 'electronics'"><strong>Height: </strong>{{this.listingForm.value.electronicsElements.height}} in.</p> 
+        <p *ngIf="listingForm.value.electronicsElements.weight && listingForm.value.category === 'electronics'"><strong>Weight: </strong>{{this.listingForm.value.electronicsElements.weight}} lb.</p> 
 
         <!-- Sportsgear Elements in Preview-->
-        <p *ngIf="listingForm.value.sportsGearElements.type"><strong>Type: </strong>{{this.listingForm.value.sportsGearElements.type}}</p> 
-        <p *ngIf="listingForm.value.sportsGearElements.weight"><strong>Weight: </strong>{{this.listingForm.value.sportsGearElements.weight}} lb.</p> 
+        <p *ngIf="listingForm.value.sportsGearElements.type && listingForm.value.category === 'sportsgear'"><strong>Type: </strong>{{this.listingForm.value.sportsGearElements.type}}</p> 
+        <p *ngIf="listingForm.value.sportsGearElements.weight && listingForm.value.category === 'sportsgear'"><strong>Weight: </strong>{{this.listingForm.value.sportsGearElements.weight}} lb.</p> 
 
         <p><strong>Description: </strong>{{this.listingForm.value.description}}</p>
         <p><strong>Price:</strong> ${{this.listingForm.value.price}}</p> 
