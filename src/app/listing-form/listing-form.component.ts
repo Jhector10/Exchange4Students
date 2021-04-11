@@ -5,8 +5,10 @@ import {FormBuilder,  FormControl} from '@angular/forms';
 import 'jquery';
 import * as $ from "jquery";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
-import {AngularFireStorage} from '@angular/fire/storage';
+import {AngularFireStorage, AngularFireUploadTask} from '@angular/fire/storage';
 import { AuthService } from '../services/auth.service';
+import firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listing-form',
@@ -18,7 +20,13 @@ import { AuthService } from '../services/auth.service';
 export class ListingFormComponent {
   //Creating a FormBuilder
   //Creating a FormBuilder
-  filePath:String | undefined;
+  filePath: String | undefined;
+  task: AngularFireUploadTask | undefined;
+  downloadableURL = '';
+
+  progressValue!: Observable<number | undefined>; // Add this <<<<<<<<<<<<<<<<<<
+ // Add this <<<<<<<<<<<<<<<<<<
+
   constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage, private authService: AuthService) {}
 
   //Grouping the Listing Form under the same attributes
@@ -90,16 +98,25 @@ export class ListingFormComponent {
   upload(event: any) {    
     this.filePath = event.target.files[0]
   }
-  uploadImage(random: number, userID: string | undefined){
+  
+  delay(timeInMillis: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(() => resolve(), timeInMillis));
+  }
+  
+  async uploadImage(random: number, userID: string | undefined){
     console.log(this.filePath)
-    this.afStorage.upload('/'+userID+'/'+random, this.filePath);
+    this.task = this.afStorage.upload('/'+userID+'/'+random, this.filePath);
+    this.progressValue = this.task.percentageChanges();       // <<<<< Percentage of uploading is given
+    (await this.task).ref.getDownloadURL().then(url => {this.downloadableURL = url;});
     //upload('/(user's ID or email)/+random number')
   }
 
-  onSubmit() {
+  async onSubmit() {
     let random: number = Math.random();
     let userID: string | undefined = this.authService.getUser();
     let userEmail: string | null | undefined = this.authService.getEmail();
+    this.uploadImage(random, userID);
+    await this.delay(5000);
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({
@@ -115,7 +132,8 @@ export class ListingFormComponent {
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
       uid: userID,
-      email: userEmail
+      email: userEmail,
+      imageURL: this.downloadableURL
       })
       .then(res => {
         console.log(res);
@@ -124,7 +142,7 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-      this.uploadImage(random, userID);
+      //this.updateImageURL();
     }
     if(this.listingForm.value.category == "clothing")
     {
@@ -141,7 +159,8 @@ export class ListingFormComponent {
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
       uid: userID,
-      email: userEmail
+      email: userEmail,
+      imageURL: this.downloadableURL
       })
       .then(res => {
         console.log(res);
@@ -150,7 +169,6 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "furniture")
     {
@@ -170,7 +188,8 @@ export class ListingFormComponent {
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
       uid: userID,
-      email: userEmail
+      email: userEmail,
+      imageURL: this.downloadableURL
       })
       .then(res => {
         console.log(res);
@@ -179,7 +198,6 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "electronics")
     {
@@ -199,7 +217,8 @@ export class ListingFormComponent {
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
       uid: userID,
-      email: userEmail
+      email: userEmail,
+      imageURL: this.downloadableURL
       })
       .then(res => {
         console.log(res);
@@ -208,7 +227,6 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-      this.uploadImage(random, userID);
     }
     if(this.listingForm.value.category == "sportsgear")
     {
@@ -224,7 +242,8 @@ export class ListingFormComponent {
       paymentOpt: this.listingForm.value.paymentOpt,
       listingPhotos: random,
       uid: userID,
-      email: userEmail
+      email: userEmail,
+      imageURL: this.downloadableURL
       })
       .then(res => {
         console.log(res);
@@ -233,7 +252,6 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-      this.uploadImage(random, userID);
     }  
   }
 }

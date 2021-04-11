@@ -1,7 +1,7 @@
 <h1>Books for Sale</h1>
 <div class="listing media" *ngFor="let doc of myArray" id = "listing-preview">
     <div class="photo">
-        <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image"/> 
+        <img id="images" src={{doc.imageURL}} alt="listing image"/> 
     </div>
     
     <div class="content media-body">
@@ -10,7 +10,7 @@
         <h2><strong>{{doc.listingTitle}}</strong></h2> 
         <h4><strong>Price:</strong> ${{doc.price}}</h4>
         <br>
-        <p><strong>Book Title: </strong>{{doc.title}}</p> 
+        <p><strong>Book Title: </strong>{{doc.bookTitle}}</p> 
         <br>
         <p><strong>Edition: </strong>{{doc.edition}}<strong> Course Number: </strong>{{doc.courseNum}}</p> 
         <br>
