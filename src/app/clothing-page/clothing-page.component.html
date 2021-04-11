@@ -1,7 +1,7 @@
 <h1>Clothing for Sale</h1>
 <div class="listing media" *ngFor="let doc of myArray" id = "listing-preview">
     <div class="photo">
-    <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image" required/> 
+    <img id="images" src={{doc.imageURL}} alt="listing image" required/> 
     </div>
 
     <div class="content media-body">

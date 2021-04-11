@@ -1,7 +1,7 @@
 <h1>Sports Gear for Sale</h1>
 <div class="listing media" div *ngFor="let doc of myArray" id = "listing-preview">
     <div class="photo">
-        <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image"/> 
+        <img id="images" src={{doc.imageURL}} alt="listing image"/> 
     </div>
     <!-- Book Elements in Preview-->
     <div class="content media-body">
