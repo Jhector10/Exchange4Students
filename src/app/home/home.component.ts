@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-home',
@@ -58,5 +59,8 @@ export class HomeComponent implements OnInit {
         this.myArray.push(doc.data());
       });
     });
+
+    
   }
+  
 }
