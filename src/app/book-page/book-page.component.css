@@ -28,10 +28,13 @@ img {
 
 h1{
     text-align: center;
+    padding: 50px 0px;
+    font-size: 30px;
 }
 
 h2 {
 display: inline;
+
 }
 
 h4{

@@ -1,15 +1,25 @@
-<div *ngFor="let doc of myArray" id = "listing-preview">
-    <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image" required/> 
-
+<h1>Sports Gear for Sale</h1>
+<div class="listing media" div *ngFor="let doc of myArray" id = "listing-preview">
+    <div class="photo">
+        <img id="images" [src]="getPhoto(doc.uid, doc.listingPhotos)" alt="listing image"/> 
+    </div>
     <!-- Book Elements in Preview-->
-    <p><strong>UID: </strong>{{doc.uid}}</p> 
-    <p><strong>Type: </strong>{{doc.type}}</p>  
-    <p><strong>Weight: </strong>{{doc.weight}}</p>   
-
-    <p><strong>Description: </strong>{{doc.description}}</p>
-    <p><strong>Price:</strong> ${{doc.price}}</p> 
-    
+    <div class="content media-body">
+    <h2><strong>{{doc.listingTitle}}</strong></h2> 
+    <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <br>
+    <p><strong>Type: </strong>{{doc.type}}</p> 
+        <br>
+    <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+        <br>
+    <p><strong>Description: </strong>{{doc.description}}</p> 
+        <br>
     <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-    <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}</p>
-    <p><strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
+    <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
+    <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+        <br>
+    <p><strong>Seller: </strong>{{doc.email}}</p>
+    <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+</div>
 </div>
