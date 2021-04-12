@@ -121,6 +121,7 @@ export class ListingFormComponent {
     {
       this.firestore.collection('books').add({
       listingTitle: this.listingForm.value.listingTitle,
+      listingTitleLowerCase: this.listingForm.value.listingTitle.toLowerCase(),
       category: this.listingForm.value.category,
       bookTitle: this.listingForm.value.bookElements.bookTitle,
       edition: this.listingForm.value.bookElements.edition,
@@ -148,6 +149,7 @@ export class ListingFormComponent {
     {
       this.firestore.collection('clothing').add({
       listingTitle: this.listingForm.value.listingTitle,
+      listingTitleLowerCase: this.listingForm.value.listingTitle.toLowerCase(),
       category: this.listingForm.value.category,
       type:this.listingForm.value.clothingElements.type,
       color: this.listingForm.value.clothingElements.color,
@@ -174,6 +176,7 @@ export class ListingFormComponent {
     {
       this.firestore.collection('furniture').add({
       listingTitle: this.listingForm.value.listingTitle,
+      listingTitleLowerCase: this.listingForm.value.listingTitle.toLowerCase(),
       category: this.listingForm.value.category,
       type: this.listingForm.value.furnitureElements.type,
       color: this.listingForm.value.furnitureElements.color,
@@ -203,6 +206,7 @@ export class ListingFormComponent {
     {
       this.firestore.collection('electronics').add({
       listingTitle: this.listingForm.value.listingTitle,
+      listingTitleLowerCase: this.listingForm.value.listingTitle.toLowerCase(),
       category: this.listingForm.value.category,
       type: this.listingForm.value.electronicsElements.type,
       model: this.listingForm.value.electronicsElements.model,
@@ -232,6 +236,7 @@ export class ListingFormComponent {
     {
       this.firestore.collection('sportsgear').add({
       listingTitle: this.listingForm.value.listingTitle,
+      listingTitleLowerCase: this.listingForm.value.listingTitle.toLowerCase(),
       category: this.listingForm.value.category,
       type: this.listingForm.value.sportsGearElements.type,
       weight: this.listingForm.value.sportsGearElements.weight,
