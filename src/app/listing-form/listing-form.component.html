@@ -142,12 +142,23 @@
         <button type="submit" (click)="onSubmit()">Post Listing</button>
     </form>
 
-    <!-- Progress Bar -->
-
+    <!-- Progress Bar for Picture Upload -->
+    <!--
     <div *ngIf="progressValue | async as val">
         <progress type="warning"  [value]="val" style="height: 7mm; width: 50%" max="100" ></progress>
         <br />
-        <span *ngIf="val<100" style="color:rgb(255, 60, 0); font-size: 17px; font-weight: 410;">{{ val | number}}% </span><span *ngIf="val == 100" style="color:rgb(1, 153, 34);  font-size: 17px; font-weight: 410;">Completed !</span>
+        <span *ngIf="val<100" style="color:#b71c1c; font-size: 17px; font-weight: 410;">{{ val | number}}% </span><span *ngIf="val == 100" style="color:rgb(1, 153, 34);  font-size: 17px; font-weight: 410;"></span>
+    </div>
+    -->
+
+    <!-- Please Wait... -->
+    <div class="please-wait" role="alert">
+        <h4 class="alert-heading"><strong>Please Wait...</strong></h4>
+    </div>
+
+    <!-- Confirmation Alert -->
+    <div class="alertcss alert alert-success" role="alert">
+        <h4 class="alert-heading">Listing has been successfully posted!</h4>
     </div>
     
 </body>

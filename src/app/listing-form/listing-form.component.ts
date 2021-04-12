@@ -24,8 +24,8 @@ export class ListingFormComponent {
   task: AngularFireUploadTask | undefined;
   downloadableURL = '';
 
-  progressValue!: Observable<number | undefined>; // Add this <<<<<<<<<<<<<<<<<<
- // Add this <<<<<<<<<<<<<<<<<<
+  progressValue!: Observable<number | undefined>; // Add this <<<<<<<<<<<<<<<<<< (for Progess Bar)
+ 
 
   constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage, private authService: AuthService) {}
 
@@ -106,12 +106,13 @@ export class ListingFormComponent {
   async uploadImage(random: number, userID: string | undefined){
     console.log(this.filePath)
     this.task = this.afStorage.upload('/'+userID+'/'+random, this.filePath);
-    this.progressValue = this.task.percentageChanges();       // <<<<< Percentage of uploading is given
+    this.progressValue = this.task.percentageChanges();       // <<<<< Percentage of uploading is given (for Progess Bar)
     (await this.task).ref.getDownloadURL().then(url => {this.downloadableURL = url;});
     //upload('/(user's ID or email)/+random number')
   }
 
   async onSubmit() {
+    $('.please-wait').css('display', 'block');
     let random: number = Math.random();
     let userID: string | undefined = this.authService.getUser();
     let userEmail: string | null | undefined = this.authService.getEmail();
@@ -257,6 +258,8 @@ export class ListingFormComponent {
       .catch(e => {
         console.log(e);
       })
-    }  
+    }
+    $('.please-wait').css('display', 'none');
+    $('.alertcss').css('display', 'block');
   }
 }
