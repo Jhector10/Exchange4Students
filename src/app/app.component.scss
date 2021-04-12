@@ -25,13 +25,34 @@
   }
 
 .container {
-  height: 200px;
   position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
   
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 850px;
+  
+  display: block;
+  height: 100%;
+  text-align: center;
+}
+
+button{
+  display: block;
+  margin-left: 145px;
+  border: 1px solid rgb(138, 2, 2);
+}
+
+button:hover{
+  background-color: rgb(138, 2, 2);
+  color: white;
+}
+
+h1{
+  display: block;
+  margin-top: 250px;
+  font-weight: 200;
+  font-size: 30px;
 }
