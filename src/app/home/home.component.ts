@@ -90,8 +90,8 @@ export class HomeComponent implements OnInit {
   {
     this.myArray = [];
     const db = firebase.firestore();
-    db.collection('books').where("listingTitle", ">=", this.searchForm.value.searchValue)
-    .where("listingTitle", "<=", this.searchForm.value.searchValue + '\uf8ff')
+    db.collection('books').where("listingTitleLowerCase", ">=", this.searchForm.value.searchValue.toLowerCase())
+    .where("listingTitleLowerCase", "<=", this.searchForm.value.searchValue.toLowerCase() + '\uf8ff')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -103,8 +103,8 @@ export class HomeComponent implements OnInit {
       .catch((error) => {
         console.log("Error getting documents: ", error);
       });
-    db.collection('clothing').where("listingTitle", ">=", this.searchForm.value.searchValue)
-    .where("listingTitle", "<=", this.searchForm.value.searchValue + '\uf8ff')
+    db.collection('clothing').where("listingTitleLowerCase", ">=", this.searchForm.value.searchValue.toLowerCase())
+    .where("listingTitleLowerCase", "<=", this.searchForm.value.searchValue.toLowerCase() + '\uf8ff')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -116,8 +116,8 @@ export class HomeComponent implements OnInit {
       .catch((error) => {
         console.log("Error getting documents: ", error);
       });
-    db.collection('furniture').where("listingTitle", ">=", this.searchForm.value.searchValue)
-    .where("listingTitle", "<=", this.searchForm.value.searchValue + '\uf8ff')
+    db.collection('furniture').where("listingTitleLowerCase", ">=", this.searchForm.value.searchValue.toLowerCase())
+    .where("listingTitleLowerCase", "<=", this.searchForm.value.searchValue.toLowerCase() + '\uf8ff')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -129,8 +129,8 @@ export class HomeComponent implements OnInit {
       .catch((error) => {
         console.log("Error getting documents: ", error);
       });
-    db.collection('electronics').where("listingTitle", ">=", this.searchForm.value.searchValue)
-    .where("listingTitle", "<=", this.searchForm.value.searchValue + '\uf8ff')
+    db.collection('electronics').where("listingTitleLowerCase", ">=", this.searchForm.value.searchValue.toLowerCase())
+    .where("listingTitleLowerCase", "<=", this.searchForm.value.searchValue.toLowerCase() + '\uf8ff')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -142,8 +142,8 @@ export class HomeComponent implements OnInit {
       .catch((error) => {
         console.log("Error getting documents: ", error);
       });
-    db.collection('sportsgear').where("listingTitle", ">=", this.searchForm.value.searchValue)
-    .where("listingTitle", "<=", this.searchForm.value.searchValue + '\uf8ff')
+    db.collection('sportsgear').where("listingTitleLowerCase", ">=", this.searchForm.value.searchValue.toLowerCase())
+    .where("listingTitleLowerCase", "<=", this.searchForm.value.searchValue.toLowerCase() + '\uf8ff')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
