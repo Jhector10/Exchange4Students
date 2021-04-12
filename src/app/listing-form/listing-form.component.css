@@ -155,3 +155,15 @@ img {
   object-fit: cover;
   float: left;
 }
+
+.alertcss {
+  width: 500px;
+  margin: auto;
+  display: none;
+}
+
+.please-wait {
+  width: 500px;
+  margin: auto;
+  display: none;
+}
