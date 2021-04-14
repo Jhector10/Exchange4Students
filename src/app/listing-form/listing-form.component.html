@@ -136,7 +136,7 @@
         </label>
     <br>
     <label for="listingphotos">Upload photo of item:</label> <br>
-        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos" (change)="upload($event)" accept=".png,.jpg">
+        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos" (change)="upload($event)" accept=".png,.jpg,.jpeg">
   
     <br>
         <button type="submit" (click)="onSubmit()">Post Listing</button>
