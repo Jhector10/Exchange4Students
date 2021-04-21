@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit {
       });
     });
     
+    console.log("myArray: ", this.myArray);
     
 
     $(document).ready(function(){
@@ -86,7 +87,7 @@ export class HomeComponent implements OnInit {
       }).change();
     });
   }
-
+  
   searchListings()
   {
     this.myArray = [];

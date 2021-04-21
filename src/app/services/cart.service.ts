@@ -17,5 +17,6 @@ export class CartService {
     userRef.update({
       cart: firebase.firestore.FieldValue.arrayUnion(doc)
     });
+    alert("Added to Cart!");
   }
 }
