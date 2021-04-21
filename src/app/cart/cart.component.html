@@ -24,7 +24,7 @@
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
             
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Delete</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
         </div>
         
         <!--Display Clothing-->
@@ -44,7 +44,7 @@
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Delete</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
         </div>
 
         <!--Display Furniture-->
@@ -69,7 +69,7 @@
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
                 
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Delete</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
         </div>
 
         <!--Display Electronics-->
@@ -93,7 +93,7 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Delete</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
         </div>
 
         <!--Display Sports Gear-->
@@ -113,7 +113,7 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Delete</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
         </div>
     </div>
 </div>

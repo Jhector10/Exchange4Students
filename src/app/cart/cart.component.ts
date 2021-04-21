@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AuthService } from '../services/auth.service';
+import { CartService } from '../services/cart.service';
 import firebase from 'firebase/app';
 
 @Component({
@@ -10,7 +11,7 @@ import firebase from 'firebase/app';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private firestore: AngularFirestore, private authService: AuthService) { }
+  constructor(private firestore: AngularFirestore, private authService: AuthService, public cart: CartService) { }
 
   myArray: any[] = []
   myCart: any[] = []
@@ -21,7 +22,10 @@ export class CartComponent implements OnInit {
       .then((doc) => {
         console.log("Document data:", doc.data());
         this.myArray.push(doc.data())
-    })
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
+      });
     console.log("myArray: ", this.myArray);
     this.myCart = this.myArray[0].cart;
     console.log("myCart: ", this.myCart);
