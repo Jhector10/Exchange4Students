@@ -6,6 +6,7 @@ import {FormGroup,  FormControl} from '@angular/forms';
 import 'jquery';
 import * as $ from "jquery";
 import firebase from 'firebase/app';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import firebase from 'firebase/app';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, public cart: CartService) { }
 
   myArray: any[] = []
 

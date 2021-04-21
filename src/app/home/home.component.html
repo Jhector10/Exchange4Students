@@ -33,7 +33,7 @@
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
             
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToCart(doc)">Add To Cart</button>
         </div>
         
         <!--Display Clothing-->
@@ -53,7 +53,7 @@
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToCart(doc)">Add To Cart</button>
         </div>
 
         <!--Display Furniture-->
@@ -78,7 +78,7 @@
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
                 
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToCart(doc)">Add To Cart</button>
         </div>
 
         <!--Display Electronics-->
@@ -102,7 +102,7 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToCart(doc)">Add To Cart</button>
         </div>
 
         <!--Display Sports Gear-->
@@ -122,7 +122,7 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToCart(doc)">Add To Cart</button>
         </div>
     </div>
 </div>

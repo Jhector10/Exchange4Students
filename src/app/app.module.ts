@@ -25,6 +25,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
+import { CartService } from './services/cart.service';
 import { HomeComponent } from './home/home.component';
 
 import { SearchComponent } from './search/search.component';
@@ -81,7 +82,7 @@ import { CartComponent } from './cart/cart.component';
     FlexLayoutModule,
     BrowserAnimationsModule
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, CartService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
