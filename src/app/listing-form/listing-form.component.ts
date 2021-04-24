@@ -27,10 +27,10 @@ export class ListingFormComponent {
   progressValue!: Observable<number | undefined>; // Add this <<<<<<<<<<<<<<<<<< (for Progess Bar)
  
 
-  constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage, private authService: AuthService) {}
+  constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage, private authService: AuthService, private fb: FormBuilder) {}
 
   //Grouping the Listing Form under the same attributes
-  listingForm = new FormGroup({
+  listingForm = this.fb.group({
       category: new FormControl(['', [Validators.required]]),
       listingTitle: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
@@ -112,12 +112,21 @@ export class ListingFormComponent {
   }
 
   async onSubmit() {
-    $('.please-wait').css('display', 'block');
-    let random: number = Math.random();
+  $('.please-wait').css('display', 'block');
+  let random: number = Math.random();
     let userID: string | undefined = this.authService.getUser();
     let userEmail: string | null | undefined = this.authService.getEmail();
     this.uploadImage(random, userID);
     await this.delay(2000);
+
+    if(this.listingForm.invalid) {
+      $('.please-wait').css('display', 'none');
+    $('.invalidcss').css('display', 'block');
+  }
+
+    
+    
+    if(this.listingForm.valid) {
     if(this.listingForm.value.category == "book")
     {
       this.firestore.collection('books').add({
@@ -261,5 +270,5 @@ export class ListingFormComponent {
     }
     $('.please-wait').css('display', 'none');
     $('.alertcss').css('display', 'block');
-  }
-}
+  } 
+}} 

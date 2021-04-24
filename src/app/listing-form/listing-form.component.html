@@ -44,7 +44,7 @@
 
     <form [formGroup] = "listingForm">
         <label for="category">Select a Listing Category</label> <br>
-            <select id="category" formControlName="category">
+            <select id="category" formControlName="category" required>
                 <option value="" disabled selected hidden>Item Category</option>
                 <option value="book">Book</option>
                 <option value="clothing">Clothing</option>
@@ -52,39 +52,16 @@
                 <option value="electronics">Electronics</option>
                 <option value="sportsgear">Sportsgear</option>
             </select><br>
-            <div *ngIf="listingForm.value.category.invalid" class="alert alert-danger">
-
-                <div *ngIf="listingForm.value.category.errors.required">
-                    Category is required.
-                </div>
-            </div> 
             <label> 
             
-            <input type="text" placeholder="Listing Title" formControlName="listingTitle" required>
+            <input type="text" id="listingTitle" placeholder="Listing Title" formControlName="listingTitle" required>
             </label>
-            <div *ngIf="listingForm.value.listingTitle.invalid" class="alert alert-danger">
-
-                <div *ngIf="listingForm.value.listingTitle.errors.required">
-                    Listing Title is required.
-                </div>
-            </div> 
 
         <div class="book specific-elements" formGroupName="bookElements" style="display: none;">
-            <input type="text" placeholder="Book Title" formControlName="bookTitle" required>
-            <div *ngIf="listingForm.value.bookTitle.invalid" class="alert alert-danger">
+            <input type="text" id="bookTitle" placeholder="Book Title" formControlName="bookTitle" required>
 
-                <div *ngIf="listingForm.value.bookTitle.errors.required">
-                    Book Title is required.
-                </div>
-            </div> 
             <br>
-            <input type="text" placeholder="Edition" formControlName="edition" required>
-            <div *ngIf="listingForm.value.edition.invalid" class="alert alert-danger">
-
-                <div *ngIf="listingForm.value.edition.errors.required">
-                    Edition is required.
-                </div>
-            </div> 
+            <input type="text" placeholder="Edition" formControlName="edition" required/>
             <br>
             <input type="text" placeholder="Course Number" formControlName="courseNum" required>
         </div>
@@ -106,11 +83,11 @@
             <input type="text" placeholder="Color" formControlName="color" required>
             <br>
             <label>Dimensions: </label><br>
-                <input type="text" placeholder="Length" formControlName="length"> in.
-                <input type="text" placeholder="Width" formControlName="width"> in.
-                <input type="text" placeholder="Height" formControlName="height"> in.
+                <input type="text" placeholder="Length" formControlName="length" pattern="[^[0-9]*$]" required> in.
+                <input type="text" placeholder="Width" formControlName="width" pattern="[^[0-9]*$]" required> in.
+                <input type="text" placeholder="Height" formControlName="height" pattern="[^[0-9]*$]" required> in.
             <br>
-            <input type="text" placeholder="Weight" formControlName="weight" required> lb.
+            <input type="text" placeholder="Weight" formControlName="weight" pattern="[^[0-9]*$]" required> lb.
         </div>
 
 
@@ -120,19 +97,19 @@
             <input type="text" placeholder="Model" formControlName="model" required>
             <br>
             <label>Dimensions: </label><br>
-                <input type="text" placeholder="Length" formControlName="length"> in.
-                <input type="text" placeholder="Width" formControlName="width"> in. 
-                <input type="text" placeholder="Height" formControlName="height"> in.
+                <input type="text" placeholder="Length" formControlName="length" pattern="[^[0-9]*$]" required> in.
+                <input type="text" placeholder="Width" formControlName="width" pattern="[^[0-9]*$]" required> in. 
+                <input type="text" placeholder="Height" formControlName="height" pattern="[^[0-9]*$]" required> in.
             
             <br>
-            <input type="text" placeholder="Weight" formControlName="weight" required> lb.
+            <input type="text" placeholder="Weight" formControlName="weight" pattern="[^[0-9]*$]" required> lb.
         </div>
 
 
         <div class="sportsgear specific-elements" formGroupName="sportsGearElements"  style="display: none;">
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
-            <input type="text" placeholder="Weight" formControlName="weight" required> lb.
+            <input type="text" placeholder="Weight" formControlName="weight" pattern="[^[0-9]*$]" required> lb.
         </div>
     <br>
         <label>
@@ -141,8 +118,9 @@
         </label>    
     <br>
         <label>
-            $ <input type="text" placeholder="Price" formControlName="price" required>
+            $ <input type="text" placeholder="Price" formControlName="price" pattern="[^[0-9]*$]" required>
         </label>
+
     <br>
         <label>
             Item Status: 
@@ -161,7 +139,7 @@
         </label>
     <br>
     <label for="listingphotos">Upload photo of item:</label> <br>
-        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos" (change)="upload($event)" accept=".png,.jpg,.jpeg">
+        <input type="file" id="imgInp" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" formGroupaName="listingForm" formControlName="listingPhotos" (change)="upload($event)" accept=".png,.jpg,.jpeg" required>
   
     <br>
         <button type="submit" (click)="onSubmit()">Post Listing</button>
@@ -186,4 +164,8 @@
         <h4 class="alert-heading">Listing has been successfully posted!</h4>
     </div>
     
+    <!-- Invalid Alert -->
+    <div class="invalidcss alert" role="alert">
+        <h4 class="alert-heading">Invalid listing!</h4>
+    </div>
 </body>
