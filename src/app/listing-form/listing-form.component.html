@@ -52,14 +52,39 @@
                 <option value="electronics">Electronics</option>
                 <option value="sportsgear">Sportsgear</option>
             </select><br>
-            <label>  
+            <div *ngIf="listingForm.value.category.invalid" class="alert alert-danger">
+
+                <div *ngIf="listingForm.value.category.errors.required">
+                    Category is required.
+                </div>
+            </div> 
+            <label> 
+            
             <input type="text" placeholder="Listing Title" formControlName="listingTitle" required>
             </label>
+            <div *ngIf="listingForm.value.listingTitle.invalid" class="alert alert-danger">
+
+                <div *ngIf="listingForm.value.listingTitle.errors.required">
+                    Listing Title is required.
+                </div>
+            </div> 
 
         <div class="book specific-elements" formGroupName="bookElements" style="display: none;">
             <input type="text" placeholder="Book Title" formControlName="bookTitle" required>
+            <div *ngIf="listingForm.value.bookTitle.invalid" class="alert alert-danger">
+
+                <div *ngIf="listingForm.value.bookTitle.errors.required">
+                    Book Title is required.
+                </div>
+            </div> 
             <br>
             <input type="text" placeholder="Edition" formControlName="edition" required>
+            <div *ngIf="listingForm.value.edition.invalid" class="alert alert-danger">
+
+                <div *ngIf="listingForm.value.edition.errors.required">
+                    Edition is required.
+                </div>
+            </div> 
             <br>
             <input type="text" placeholder="Course Number" formControlName="courseNum" required>
         </div>

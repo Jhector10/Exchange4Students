@@ -31,47 +31,47 @@ export class ListingFormComponent {
 
   //Grouping the Listing Form under the same attributes
   listingForm = new FormGroup({
-      category: new FormControl(['']),
-      listingTitle: new FormControl(''),
-      description: new FormControl(''),
-      price: new FormControl(''),
-      itemStatus: new FormControl(''),
-      exchangeLoc: new FormControl(''),
-      paymentOpt: new FormControl(''),
+      category: new FormControl(['', [Validators.required]]),
+      listingTitle: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]), //need number validation function
+      itemStatus: new FormControl('', [Validators.required]),
+      exchangeLoc: new FormControl('', [Validators.required]),
+      paymentOpt: new FormControl('', [Validators.required]),
       listingPhotos: new FormControl('', [Validators.required]),
     //Separate FormGroups for specific category elements
     bookElements: new FormGroup ({ //Book elements group
-      bookTitle: new FormControl(''),
-      edition: new FormControl(''),
-      courseNum: new FormControl(''),
+      bookTitle: new FormControl('', [Validators.required]),
+      edition: new FormControl('', [Validators.required]),
+      courseNum: new FormControl('', [Validators.required]),
   }),
 
     clothingElements: new FormGroup ({ //Clothing elements group 
-      type: new FormControl(''),
-      color: new FormControl(''),
-      size: new FormControl(''),
+      type: new FormControl('', [Validators.required]),
+      color: new FormControl('', [Validators.required]),
+      size: new FormControl('', [Validators.required]),
   }),
 
     furnitureElements: new FormGroup ({ //Furniture elements group 
-      type: new FormControl(''),
-      color: new FormControl(''),
-      length: new FormControl(''),
-      width: new FormControl(''),
-      height: new FormControl(''),
-      weight: new FormControl(''),
+      type: new FormControl('', [Validators.required]),
+      color: new FormControl('', [Validators.required]),
+      length: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      width: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      height: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      weight: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
   }),
     electronicsElements: new FormGroup({ //Electronics elements group
-      type: new FormControl(''),
-      model: new FormControl(''),
-      length: new FormControl(''),
-      width: new FormControl(''),
-      height: new FormControl(''),
-      weight: new FormControl(''),
+      type: new FormControl('', [Validators.required]),
+      model: new FormControl('', [Validators.required]),
+      length: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      width: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      height: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      weight: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
   }),
 
     sportsGearElements: new FormGroup({ //Sportsgear elements group
-      type: new FormControl(''),
-      weight: new FormControl(''),
+      type: new FormControl('', [Validators.required]),
+      weight: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
   }),
   
 });
