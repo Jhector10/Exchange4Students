@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 
 @Component({
@@ -11,7 +13,12 @@ import firebase from 'firebase/app';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private firestore: AngularFirestore, private authService: AuthService, public cart: CartService) { }
+  constructor(
+    private firestore: AngularFirestore, 
+    private authService: AuthService, 
+    public cart: CartService,
+    public afAuth: AngularFireAuth, 
+    private fun: AngularFireFunctions) { }
 
   myArray: any[] = []
   myCart: any[] = []

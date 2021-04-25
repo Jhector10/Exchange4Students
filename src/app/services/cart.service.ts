@@ -21,6 +21,19 @@ export class CartService {
     alert("Added to Cart!");
   }
 
+  addToOrder(doc: any) {
+    const db = firebase.firestore();
+    db.collection("orders").add({
+      orders: firebase.firestore.FieldValue.arrayUnion(doc)
+    })
+    .then((docRef) => {
+      console.log(docRef);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
   deleteFromCart(doc: any) {
     const db = firebase.firestore();
     var userRef = db.collection("user").doc(this.authService.getUser());
