@@ -176,13 +176,6 @@ textarea:invalid  {
   display: none;
 }
 
-.invalidcss {
-  width: 500px;
-  background-color: #ffd9d9;
-  color: #ff0000;
-  margin: auto;
-  display: none;
-}
 
 .please-wait {
   width: 500px;
