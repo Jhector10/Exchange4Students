@@ -86,8 +86,12 @@
                 <input type="text" placeholder="Length" formControlName="length" pattern="[^[0-9]*$]" required> in.
                 <input type="text" placeholder="Width" formControlName="width" pattern="[^[0-9]*$]" required> in.
                 <input type="text" placeholder="Height" formControlName="height" pattern="[^[0-9]*$]" required> in.
-            <br>
+                <br>
+                <p style="color:rgb(105, 0, 0)">Please enter numbers.</p>
+                <br>
             <input type="text" placeholder="Weight" formControlName="weight" pattern="[^[0-9]*$]" required> lb.
+            <br>
+            <p style="color:rgb(105, 0, 0)">Please enter numbers.</p>
         </div>
 
 
@@ -100,9 +104,12 @@
                 <input type="text" placeholder="Length" formControlName="length" pattern="[^[0-9]*$]" required> in.
                 <input type="text" placeholder="Width" formControlName="width" pattern="[^[0-9]*$]" required> in. 
                 <input type="text" placeholder="Height" formControlName="height" pattern="[^[0-9]*$]" required> in.
-            
+                <br>
+                <p style="color:rgb(105, 0, 0)">Please enter numbers.</p>
             <br>
             <input type="text" placeholder="Weight" formControlName="weight" pattern="[^[0-9]*$]" required> lb.
+            <br>
+            <p style="color:rgb(105, 0, 0)">Please enter numbers.</p>
         </div>
 
 
@@ -110,6 +117,8 @@
             <input type="text" placeholder="Type" formControlName="type" required>
             <br>
             <input type="text" placeholder="Weight" formControlName="weight" pattern="[^[0-9]*$]" required> lb.
+            <br>
+            <p style="color:rgb(105, 0, 0)">Please enter numbers.</p>
         </div>
     <br>
         <label>
@@ -119,7 +128,9 @@
     <br>
         <label>
             $ <input type="text" placeholder="Price" formControlName="price" pattern="[^[0-9]*$]" required>
-        </label>
+          </label>  
+            <p style="color:rgb(105, 0, 0)">Please enter numbers.</p>
+        
 
     <br>
         <label>
@@ -166,6 +177,6 @@
     
     <!-- Invalid Alert -->
     <div class="invalidcss alert" role="alert">
-        <h4 class="alert-heading">Invalid listing!</h4>
+        <h4 class="alert-heading">Invalid listing! All fields are required.</h4>
     </div>
 </body>
