@@ -82,9 +82,42 @@ export class ViewListingsComponent implements OnInit {
     db.collection(doc.category).doc(docID).delete().then(() => {
       console.log("Document successfully deleted!");
       location.reload();
-  }).catch((error) => {
+    })
+    .catch((error) => {
       console.error("Error removing document: ", error);
-  });
+    });
+  }
+
+  markAsSold(doc: any) {
+    var getDocId = this.myArray.indexOf(doc)+1;
+    var docID = this.myArray[getDocId];
+    const db = firebase.firestore();
+    db.collection(doc.category).doc(docID).update({
+      'itemStatus': 'Sold'
+    })
+    .then(() => {
+      console.log("Document successfully updated!");
+      location.reload();
+    })
+    .catch((error) => {
+      console.error("Error updating document: ", error);
+    });
+  }
+
+  markAsForSale(doc: any) {
+    var getDocId = this.myArray.indexOf(doc)+1;
+    var docID = this.myArray[getDocId];
+    const db = firebase.firestore();
+    db.collection(doc.category).doc(docID).update({
+      'itemStatus': 'For Sale'
+    })
+    .then(() => {
+      console.log("Document successfully updated!");
+      location.reload();
+    })
+    .catch((error) => {
+      console.error("Error updating document: ", error);
+    });
   }
   
 }
