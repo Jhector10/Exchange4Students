@@ -106,6 +106,7 @@ export class ViewListingsComponent implements OnInit {
     const db = firebase.firestore();
     db.collection(doc.category).doc(doc.docId).delete().then(() => {
       console.log("Document successfully deleted!");
+      alert('Item deleted');
       location.reload();
     })
     .catch((error) => {
@@ -122,6 +123,7 @@ export class ViewListingsComponent implements OnInit {
     })
     .then(() => {
       console.log("Document successfully updated!");
+      alert('Item mark as sold');
       location.reload();
     })
     .catch((error) => {
@@ -138,6 +140,7 @@ export class ViewListingsComponent implements OnInit {
     })
     .then(() => {
       console.log("Document successfully updated!");
+      alert('Item mark as for sale');
       location.reload();
     })
     .catch((error) => {
