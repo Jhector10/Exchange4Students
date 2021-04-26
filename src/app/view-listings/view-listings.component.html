@@ -48,7 +48,11 @@
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
+
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="deleteListing(doc)">Delete</button>
+
+            <button *ngIf="doc.itemStatus == 'For Sale'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsSold(doc)">Mark as sold</button>
+            <button *ngIf="doc.itemStatus == 'Sold'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsForSale(doc)">Mark as for sale</button>
         </div>
 
         <!--Display Furniture-->
@@ -74,6 +78,9 @@
             <p><strong>Seller: </strong>{{doc.email}}</p>
                 
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="deleteListing(doc)">Delete</button>
+
+            <button *ngIf="doc.itemStatus == 'For Sale'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsSold(doc)">Mark as sold</button>
+            <button *ngIf="doc.itemStatus == 'Sold'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsForSale(doc)">Mark as for sale</button>
         </div>
 
         <!--Display Electronics-->
@@ -97,7 +104,11 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
+
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="deleteListing(doc)">Delete</button>
+
+            <button *ngIf="doc.itemStatus == 'For Sale'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsSold(doc)">Mark as sold</button>
+            <button *ngIf="doc.itemStatus == 'Sold'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsForSale(doc)">Mark as for sale</button>
         </div>
 
         <!--Display Sports Gear-->
@@ -117,7 +128,11 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
+
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="deleteListing(doc)">Delete</button>
+
+            <button *ngIf="doc.itemStatus == 'For Sale'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsSold(doc)">Mark as sold</button>
+            <button *ngIf="doc.itemStatus == 'Sold'" class="button" mdbBtn type="button" mdbWavesEffect (click)="markAsForSale(doc)">Mark as for sale</button>
         </div>
     </div>
 </div>
