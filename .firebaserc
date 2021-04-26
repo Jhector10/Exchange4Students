@@ -9,6 +9,7 @@
     }
   },
   "projects": {
-    "website": "exchange4students"
+    "website": "exchange4students",
+    "default": "exchange4students"
   }
 }

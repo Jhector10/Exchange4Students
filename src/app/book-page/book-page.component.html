@@ -23,7 +23,7 @@
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
         
-            <button class="button" mdbBtn type="button" mdbWavesEffect>Add To Cart</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToCart(doc)">Add To Cart</button>
         </div>   
     </div>
 </div>
