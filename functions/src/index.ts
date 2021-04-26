@@ -12,23 +12,24 @@ const TEMPLATE_ID = functions.config().sendgrid.template;
 sgMail.setApiKey(API_KEY);
 
 // Emails the buyer when a new order is placed
-export const newOrder = functions.firestore.document('orders/{ordersId}/').onCreate( async (change, context) => {
+export const orderEmail = functions.firestore.document(`orders/{ordersId}`).onCreate( async (change, context) => {
 
     // Read the post document
     const userSnap = await db.collection('user').doc(context.params.userId).get();
 
     // Raw Data
     const user = userSnap.data();
-    const order = change.data();
+    const orders = change.data();
 
     // Email
     const msg = {
-        to: [user.email, order.email],
+        to: [user.email, orders.email],
         from: 'exchange4students@gmail.com',
         templateId: TEMPLATE_ID,
         dynamicTemplateData: {
-            subject: `Order Confirmation for ${order.listingTitle}`,
-            name: user.displayName,
+            subject: `Order Confirmation for ${orders.listingTitle}`,
+            buyer: user.displayName,
+            seller: orders.displayName
         },
     };
 

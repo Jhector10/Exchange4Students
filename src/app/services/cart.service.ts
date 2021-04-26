@@ -22,9 +22,9 @@ export class CartService {
   }
 
   addToOrder(doc: any) {
-    const db = firebase.firestore();
+    const db = this.firestore;
     db.collection("orders").add({
-      orders: firebase.firestore.FieldValue.arrayUnion(doc)
+      orders: doc
     })
     .then((docRef) => {
       console.log(docRef);
