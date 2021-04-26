@@ -36,6 +36,7 @@ import { ClothingPageComponent } from './clothing-page/clothing-page.component';
 import { FurniturePageComponent } from './furniture-page/furniture-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
+import { ViewListingsComponent } from './view-listings/view-listings.component';
 import { CartComponent } from './cart/cart.component';
 
 
@@ -53,6 +54,7 @@ import { CartComponent } from './cart/cart.component';
     ElectronicsPageComponent, 
     SportsPageComponent,
     SearchComponent,
+    ViewListingsComponent,
     CartComponent 
   ],
   imports: [
