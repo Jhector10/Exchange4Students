@@ -5,9 +5,9 @@
         <img id="images" src="http://placehold.it/180" alt="listing image" required/> 
         <!-- Book Elements in Preview-->
         <h4><strong>{{this.listingForm.value.listingTitle}}</strong></h4>
-        <p *ngIf="listingForm.value.bookElements.bookTitle && listingForm.value.category === 'book'"><strong>Book Title: </strong>{{this.listingForm.value.bookElements.bookTitle}}</p> 
-        <p *ngIf="listingForm.value.bookElements.edition && listingForm.value.category === 'book'"><strong>Edition: </strong>{{this.listingForm.value.bookElements.edition}}</p> 
-        <p *ngIf="listingForm.value.bookElements.courseNum && listingForm.value.category === 'book'"><strong>Course Number: </strong>{{this.listingForm.value.bookElements.courseNum}}</p> 
+        <p *ngIf="listingForm.value.bookElements.bookTitle && listingForm.value.category === 'books'"><strong>Book Title: </strong>{{this.listingForm.value.bookElements.bookTitle}}</p> 
+        <p *ngIf="listingForm.value.bookElements.edition && listingForm.value.category === 'books'"><strong>Edition: </strong>{{this.listingForm.value.bookElements.edition}}</p> 
+        <p *ngIf="listingForm.value.bookElements.courseNum && listingForm.value.category === 'books'"><strong>Course Number: </strong>{{this.listingForm.value.bookElements.courseNum}}</p> 
 
         <!-- Clothing Elements in Preview-->
         <p *ngIf="listingForm.value.clothingElements.type && listingForm.value.category === 'clothing'"><strong>Type: </strong>{{this.listingForm.value.clothingElements.type}}</p> 
@@ -46,7 +46,7 @@
         <label for="category">Select a Listing Category</label> <br>
             <select id="category" formControlName="category">
                 <option value="" disabled selected hidden>Item Category</option>
-                <option value="book">Book</option>
+                <option value="books">Book</option>
                 <option value="clothing">Clothing</option>
                 <option value="furniture">Furniture</option>
                 <option value="electronics">Electronics</option>
@@ -56,7 +56,7 @@
             <input type="text" placeholder="Listing Title" formControlName="listingTitle" required>
             </label>
 
-        <div class="book specific-elements" formGroupName="bookElements" style="display: none;">
+        <div class="books specific-elements" formGroupName="bookElements" style="display: none;">
             <input type="text" placeholder="Book Title" formControlName="bookTitle" required>
             <br>
             <input type="text" placeholder="Edition" formControlName="edition" required>

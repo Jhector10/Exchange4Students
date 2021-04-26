@@ -40,7 +40,7 @@ export class ListingFormComponent {
       paymentOpt: new FormControl(''),
       listingPhotos: new FormControl('', [Validators.required]),
     //Separate FormGroups for specific category elements
-    bookElements: new FormGroup ({ //Book elements group
+      bookElements: new FormGroup ({ //Book elements group
       bookTitle: new FormControl(''),
       edition: new FormControl(''),
       courseNum: new FormControl(''),
@@ -118,7 +118,7 @@ export class ListingFormComponent {
     let userEmail: string | null | undefined = this.authService.getEmail();
     this.uploadImage(random, userID);
     await this.delay(2000);
-    if(this.listingForm.value.category == "book")
+    if(this.listingForm.value.category == "books")
     {
       this.firestore.collection('books').add({
       listingTitle: this.listingForm.value.listingTitle,
