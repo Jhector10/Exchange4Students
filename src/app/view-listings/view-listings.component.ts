@@ -19,7 +19,12 @@ export class ViewListingsComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.myArray.push(doc.data(), doc.id);
+          if (doc.data().docId == undefined) {
+            db.collection('books').doc(doc.id).update({
+              'docId': doc.id
+            })
+          }
+          this.myArray.push(doc.data());
           console.log(doc.id, " => ", doc.data());
         });
       })
@@ -30,7 +35,12 @@ export class ViewListingsComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.myArray.push(doc.data(), doc.id);
+          if (doc.data().docId == undefined) {
+            db.collection('clothing').doc(doc.id).update({
+              'docId': doc.id
+            })
+          }
+          this.myArray.push(doc.data());
           console.log(doc.id, " => ", doc.data());
         });
       })
@@ -41,7 +51,12 @@ export class ViewListingsComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.myArray.push(doc.data(), doc.id);
+          if (doc.data().docId == undefined) {
+            db.collection('furniture').doc(doc.id).update({
+              'docId': doc.id
+            })
+          }
+          this.myArray.push(doc.data());
           console.log(doc.id, " => ", doc.data());
         });
       })
@@ -52,7 +67,12 @@ export class ViewListingsComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.myArray.push(doc.data(), doc.id);
+          if (doc.data().docId == undefined) {
+            db.collection('electronics').doc(doc.id).update({
+              'docId': doc.id
+            })
+          }
+          this.myArray.push(doc.data());
           console.log(doc.id, " => ", doc.data());
         });
       })
@@ -63,7 +83,12 @@ export class ViewListingsComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.myArray.push(doc.data(), doc.id);
+          if (doc.data().docId == undefined) {
+            db.collection('sportsgear').doc(doc.id).update({
+              'docId': doc.id
+            })
+          }
+          this.myArray.push(doc.data());
           console.log(doc.id, " => ", doc.data());
         });
       })
@@ -74,12 +99,12 @@ export class ViewListingsComponent implements OnInit {
 
   deleteListing(doc: any) {
     // console.log(this.myArray.indexOf('sM1h3ELlufXAOlWOMXkd'));
-    var getDocId = this.myArray.indexOf(doc)+1;
-    var docID = this.myArray[getDocId];
+    // var getDocId = this.myArray.indexOf(doc)+1;
+    // var docID = this.myArray[getDocId];
     // console.log(docID);
     // console.log(doc.category);
     const db = firebase.firestore();
-    db.collection(doc.category).doc(docID).delete().then(() => {
+    db.collection(doc.category).doc(doc.docId).delete().then(() => {
       console.log("Document successfully deleted!");
       location.reload();
     })
@@ -89,10 +114,10 @@ export class ViewListingsComponent implements OnInit {
   }
 
   markAsSold(doc: any) {
-    var getDocId = this.myArray.indexOf(doc)+1;
-    var docID = this.myArray[getDocId];
+    // var getDocId = this.myArray.indexOf(doc)+1;
+    // var docID = this.myArray[getDocId];
     const db = firebase.firestore();
-    db.collection(doc.category).doc(docID).update({
+    db.collection(doc.category).doc(doc.docId).update({
       'itemStatus': 'Sold'
     })
     .then(() => {
@@ -105,10 +130,10 @@ export class ViewListingsComponent implements OnInit {
   }
 
   markAsForSale(doc: any) {
-    var getDocId = this.myArray.indexOf(doc)+1;
-    var docID = this.myArray[getDocId];
+    // var getDocId = this.myArray.indexOf(doc)+1;
+    // var docID = this.myArray[getDocId];
     const db = firebase.firestore();
-    db.collection(doc.category).doc(docID).update({
+    db.collection(doc.category).doc(doc.docId).update({
       'itemStatus': 'For Sale'
     })
     .then(() => {
