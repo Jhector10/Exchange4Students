@@ -9,7 +9,8 @@ import { ResourceLoader } from '@angular/compiler';
 })
 export class CartService {
 
-  constructor(private firestore: AngularFirestore, private authService: AuthService) { }
+  constructor(private firestore: AngularFirestore, 
+    private authService: AuthService) { }
 
   addToCart(doc: any) {
     const db = firebase.firestore();
@@ -23,12 +24,21 @@ export class CartService {
 
   addToOrder(doc: any) {
     const db = this.firestore;
-    db.collection("orders").add({
-      orders: doc
+    db.collection("mail").add({
+      to: this.authService.getEmail(),
+      message: {
+        subject: `Order Confirmation for ${doc.listingTitle}`,
+        text: `This is the order that you purchased \n `
+      },
     })
-    .then((docRef) => {
-      console.log(docRef);
+    db.collection("mail").add({
+      to: doc.email,
+      message: {
+        subject: `Order Purchased for ${doc.listingTitle}`,
+        text: `This is your listing that was purchased \n `
+      },
     })
+    .then(() => console.log("Queued email for delivery!"))
     .catch((error) => {
       console.error(error);
     });

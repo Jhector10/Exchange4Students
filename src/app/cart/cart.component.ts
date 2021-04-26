@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
-import { MailchimpService } from '../services/mailchimp.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
@@ -18,7 +17,6 @@ export class CartComponent implements OnInit {
     private firestore: AngularFirestore, 
     private authService: AuthService, 
     public cart: CartService,
-    public mailchimp: MailchimpService,
     public afAuth: AngularFireAuth, 
     private fun: AngularFireFunctions) { }
 
