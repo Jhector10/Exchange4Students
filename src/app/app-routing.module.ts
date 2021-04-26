@@ -8,6 +8,7 @@ import { ClothingPageComponent } from './clothing-page/clothing-page.component';
 import { FurniturePageComponent } from './furniture-page/furniture-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {path: 'app', component: AppComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'furniture-page', component: FurniturePageComponent},
   {path: 'electronics-page', component: ElectronicsPageComponent},
   {path: 'sports-page', component: SportsPageComponent},
+  {path: 'cart', component: CartComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

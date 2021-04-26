@@ -25,6 +25,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
+import { CartService } from './services/cart.service';
 import { HomeComponent } from './home/home.component';
 
 import { SearchComponent } from './search/search.component';
@@ -35,6 +36,7 @@ import { ClothingPageComponent } from './clothing-page/clothing-page.component';
 import { FurniturePageComponent } from './furniture-page/furniture-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -50,7 +52,8 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
     FurniturePageComponent, 
     ElectronicsPageComponent, 
     SportsPageComponent,
-    SearchComponent 
+    SearchComponent,
+    CartComponent 
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,7 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
     FlexLayoutModule,
     BrowserAnimationsModule
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, CartService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
