@@ -78,13 +78,13 @@ export class CartService {
           text: 
             "Hey there! 👋 \n"+
             "An order has been placed for your listing " + theCart[i].listingTitle + " by " + this.authService.getEmail() + "\n" + 
-            "Here's a summary of the listing:\n " + 
+            "Here's a summary of the listing:\n\n " + 
             theCart[i].listingTitle + "\n" + 
             "\t\tPrice: $" + theCart[i].price + "\n" + 
             "\t\tBuyer: " + this.authService.getEmail() + "\n" + 
             "\t\tExchange Location: " + theCart[i].exchangeLoc + "\n" + 
-            "\t\tPayment Options: " + theCart[i].paymentOpt + "\n" + 
-            "Reach out to your buyer to set an date and time for the exchange!\n"+
+            "\t\tPayment Options: " + theCart[i].paymentOpt + "\n\n" + 
+            "Reach out to your buyer to set an date and time for the exchange!\n\n"+
             "- Your friends at Exchange4Students"
         },
       })
@@ -100,9 +100,9 @@ export class CartService {
         subject: `🛒 Order Confirmation #${confirmationNum}`,
         text: 
           "Hey there! 👋 \n"+
-          "Thanks for placing an order! Here's your summary: \n" + 
+          "Thanks for placing an order! Here's your summary: \n\n" + 
           stringCart + "\n" + 
-          "Your sellers will reach out to you with a date and time to make the exchange!\n" +
+          "Your sellers will reach out to you with a date and time to make the exchange!\n\n" +
           "- Your friends at Exchange4Students"
       },
     })
