@@ -5,8 +5,9 @@ import firebase from 'firebase/app';
 import { ResourceLoader } from '@angular/compiler';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class CartService {
 
   constructor(private firestore: AngularFirestore, 
@@ -41,8 +42,10 @@ export class CartService {
     .then(() => console.log("Queued email for delivery!"))
     .catch((error) => {
       console.error(error);
-    });
+    }); 
+    alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
   }
+
 
   deleteFromCart(doc: any) {
     const db = firebase.firestore();

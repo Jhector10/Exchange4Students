@@ -37,4 +37,6 @@ export class CartComponent implements OnInit {
     this.myCart = this.myArray[0].cart;
     console.log("myCart: ", this.myCart);
   }
+
+  
 }

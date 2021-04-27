@@ -1,4 +1,6 @@
+
 <h1>Cart</h1>
+
 <div *ngFor="let doc of myArray[0].cart">
     <div class="listing media" id = "listing-preview" *ngIf="doc.itemStatus === 'For Sale'">
 
@@ -25,7 +27,7 @@
             <p><strong>Seller: </strong>{{doc.email}}</p>
             
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
+            <button class="button" id="order-button" mdbWavesEffect (click)="cart.addToOrder(doc)" mdbBtn type="button">Order</button>
         </div>
         
         <!--Display Clothing-->
@@ -46,7 +48,7 @@
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.deleteFromCart(doc)">Delete</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
+            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc);">Order</button>
         </div>
 
         <!--Display Furniture-->
@@ -122,3 +124,13 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("order-button").onclick = function () {
+        cart.addToOrder(doc);
+        document.getElementsByClassName('order-confirmation').display = "block";
+    }
+
+    function okayConfirm(doc) {
+        document.getElementsByClassName('order-confirmation').display = "none";
+    }
+</script>
