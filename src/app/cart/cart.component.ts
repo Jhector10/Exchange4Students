@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
     db.collection("user").doc(this.authService.getUser())
       .get()
       .then((doc) => {
-        console.log("Document data:", doc.data());
+        //console.log("Document data:", doc.data());
         var data = doc.data();
         if(data != null)
         {
@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
-    //console.log("myArray: ", this.myArray);
+    console.log("myArray: ", this.myArray);
     //this.myCart = this.myArray[0].cart;
     //console.log("myCart: ", this.myCart);
   }
