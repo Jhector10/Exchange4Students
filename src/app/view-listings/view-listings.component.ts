@@ -20,7 +20,7 @@ export class ViewListingsComponent implements OnInit {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().docId == undefined) {
-            db.collection('books').doc(doc.id).update({
+            db.collection(doc.data().category).doc(doc.id).update({
               'docId': doc.id
             })
           }
@@ -36,7 +36,7 @@ export class ViewListingsComponent implements OnInit {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().docId == undefined) {
-            db.collection('clothing').doc(doc.id).update({
+            db.collection(doc.data().category).doc(doc.id).update({
               'docId': doc.id
             })
           }
@@ -52,7 +52,7 @@ export class ViewListingsComponent implements OnInit {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().docId == undefined) {
-            db.collection('furniture').doc(doc.id).update({
+            db.collection(doc.data().category).doc(doc.id).update({
               'docId': doc.id
             })
           }
@@ -68,7 +68,7 @@ export class ViewListingsComponent implements OnInit {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().docId == undefined) {
-            db.collection('electronics').doc(doc.id).update({
+            db.collection(doc.data().category).doc(doc.id).update({
               'docId': doc.id
             })
           }
@@ -84,7 +84,7 @@ export class ViewListingsComponent implements OnInit {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().docId == undefined) {
-            db.collection('sportsgear').doc(doc.id).update({
+            db.collection(doc.data().category).doc(doc.id).update({
               'docId': doc.id
             })
           }

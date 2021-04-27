@@ -49,7 +49,7 @@
             <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                 <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/view-listings" style="font-size: medium;">View Listings</a>
                 <a class="dropdown-item waves-light" mdbWavesEffect href="#" style="font-size: medium;">View Orders</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="#" style="font-size: medium;">Settings</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect (click)="auth.deleteAccount()" style="font-size: medium;">Delete Account</a>
                 <div class="divider dropdown-divider"></div>
                 <a class="dropdown-item waves-light" mdbWavesEffect (click)="auth.signOut()" style="font-size: medium;">Log out</a>
             </div>
