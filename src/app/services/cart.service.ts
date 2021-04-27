@@ -14,11 +14,21 @@ export class CartService {
 
   addToCart(doc: any) {
     const db = firebase.firestore();
-    var userRef = db.collection("user").doc(this.authService.getUser());
-
-    userRef.update({
-      cart: firebase.firestore.FieldValue.arrayUnion(doc)
-    });
+    var userRef = db.collection("carts").doc(this.authService.getUser());
+    userRef.get()
+      .then((querySnapshot) => {
+        var docExists = querySnapshot.exists;
+        if (docExists == true) {
+          userRef.update({
+            cart: firebase.firestore.FieldValue.arrayUnion(doc)
+          })
+        }
+        else {
+          userRef.set({
+            cart: firebase.firestore.FieldValue.arrayUnion(doc)
+          });
+        }
+      });
     alert("Added to Cart!");
   }
 
@@ -44,14 +54,19 @@ export class CartService {
     });
   }
 
-  deleteFromCart(doc: any) {
+  async removeFromCart(doc: any) {
     const db = firebase.firestore();
-    var userRef = db.collection("user").doc(this.authService.getUser());
+    var userRef = db.collection("carts").doc(this.authService.getUser());
 
     userRef.update({
       cart: firebase.firestore.FieldValue.arrayRemove(doc)
     });
+    // alert("Deleted from Cart!");
+    await this.delay(500);
     location.reload();
-    alert("Deleted from Cart!");
+  }
+
+  delay(timeInMillis: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(() => resolve(), timeInMillis));
   }
 }
