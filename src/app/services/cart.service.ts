@@ -97,7 +97,7 @@ export class CartService {
     db.collection("mail").add({
       to: this.authService.getEmail(),
       message: {
-        subject: `📦 Order Confirmation #${confirmationNum}`,
+        subject: `🛒 Order Confirmation #${confirmationNum}`,
         text: 
           "Hey there! 👋 \n"+
           "Thanks for placing an order! Here's your summary: \n" + 
