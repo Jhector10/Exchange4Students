@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-view-orders',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewOrdersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
+  myArray: any[] = []
 
   ngOnInit(): void {
   }
