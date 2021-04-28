@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
-import { SearchComponent } from '../search/search.component';
 import {FormGroup,  FormControl} from '@angular/forms';
 import 'jquery';
 import * as $ from "jquery";

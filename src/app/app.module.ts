@@ -28,8 +28,6 @@ import { AuthService } from './services/auth.service';
 import { CartService } from './services/cart.service';
 import { HomeComponent } from './home/home.component';
 
-import { SearchComponent } from './search/search.component';
-
 import { AddListingPageComponent } from './add-listing-page/add-listing-page.component';
 import { BookPageComponent } from './book-page/book-page.component';
 import { ClothingPageComponent } from './clothing-page/clothing-page.component';
@@ -54,7 +52,6 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
     FurniturePageComponent, 
     ElectronicsPageComponent, 
     SportsPageComponent,
-    SearchComponent,
     ViewListingsComponent,
     CartComponent,
     ViewOrdersComponent 
