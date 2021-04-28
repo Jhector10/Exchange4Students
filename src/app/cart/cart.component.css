@@ -83,3 +83,12 @@ p{
     margin-top: -10px;
     float: right;
 }
+
+.placeOrder {
+    margin-right: 280px;
+}
+
+.noItems {
+    margin: auto;
+    display: none;
+}

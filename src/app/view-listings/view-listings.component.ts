@@ -132,7 +132,7 @@ export class ViewListingsComponent implements OnInit {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      alert('Item mark as sold');
+      alert('Item Marked as Sold');
     })
     .catch((error) => {
       console.error("Error updating document: ", error);
@@ -150,7 +150,7 @@ export class ViewListingsComponent implements OnInit {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      alert('Item mark as for sale');
+      alert('Item Marked as For Sale');
     })
     .catch((error) => {
       console.error("Error updating document: ", error);

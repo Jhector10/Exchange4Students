@@ -5,6 +5,7 @@ import { CartService } from '../services/cart.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-cart',
@@ -40,6 +41,11 @@ export class CartComponent implements OnInit {
     console.log("myArray: ", this.myArray);
     //this.myCart = this.myArray[0].cart;
     //console.log("myCart: ", this.myCart);
+    console.log(this.myArray[0].length);
+    if(this.myArray.length === 0)
+    {
+      $('.noItems').css('display', 'block');
+    }
   }
 
   
