@@ -21,21 +21,25 @@ export class CartComponent implements OnInit {
     private fun: AngularFireFunctions) { }
 
   myArray: any[] = []
-  myCart: any[] = []
+  //myCart: any[] = []
   ngOnInit(): void {
     var db = firebase.firestore();
     db.collection("user").doc(this.authService.getUser())
       .get()
       .then((doc) => {
-        console.log("Document data:", doc.data());
-        this.myArray.push(doc.data())
+        //console.log("Document data:", doc.data());
+        var data = doc.data();
+        if(data != null)
+        {
+          this.myArray.push(data.cart)
+        }
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
     console.log("myArray: ", this.myArray);
-    this.myCart = this.myArray[0].cart;
-    console.log("myCart: ", this.myCart);
+    //this.myCart = this.myArray[0].cart;
+    //console.log("myCart: ", this.myCart);
   }
 
   
