@@ -41,7 +41,7 @@
 
 button{
   display: block;
-  margin-left: 145px;
+  margin-left: 245px;
   border: 1px solid rgb(138, 2, 2);
 }
 
@@ -52,7 +52,30 @@ button:hover{
 
 h1{
   display: block;
-  margin-top: 250px;
+  margin-top: 190px;
   font-weight: 200;
   font-size: 30px;
+}
+
+h4{
+  display: block;
+  margin-top: 5px;
+}
+
+img{
+  border-radius: 10px;
+  transition: transform .2s; /* Animation */
+}
+
+img:hover {
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.column {
+  flex: 33.33%;
+  padding-right: 30px;
+}
+
+.row {
+  display: flex;
 }
