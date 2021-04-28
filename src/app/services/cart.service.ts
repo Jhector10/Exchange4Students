@@ -33,29 +33,6 @@ export class CartService {
     alert("Added to Cart!");
   }
 
-  addToOrder(doc: any) {
-    const db = this.firestore;
-    db.collection("mail").add({
-      to: this.authService.getEmail(),
-      message: {
-        subject: `Order Confirmation for ${doc.listingTitle}`,
-        text: `This is the order that you purchased \n `
-      },
-    })
-    db.collection("mail").add({
-      to: doc.email,
-      message: {
-        subject: `Order Purchased for ${doc.listingTitle}`,
-        text: `This is your listing that was purchased \n `
-      },
-    })
-    .then(() => console.log("Queued email for delivery!"))
-    .catch((error) => {
-      console.error(error);
-    }); 
-    alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
-  }
-
 
   async removeFromCart(doc: any) {
     const db = firebase.firestore();
@@ -110,6 +87,7 @@ export class CartService {
       .catch((error) => {
         console.error(error);
       });
+      alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
     }
     //send email to buyer
     db.collection("mail").add({
