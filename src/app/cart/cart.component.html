@@ -1,5 +1,6 @@
+
 <h1>Cart</h1>
-<div *ngFor="let doc of myArray[0].cart">
+<div *ngFor="let doc of myArray[0]">
     <div class="listing media" id = "listing-preview" *ngIf="doc.itemStatus === 'For Sale'">
 
         <div class="photo">
@@ -23,9 +24,9 @@
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}<strong> Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
+
         </div>
         
         <!--Display Clothing-->
@@ -47,6 +48,7 @@
             <p><strong>Seller: </strong>{{doc.email}}</p>
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
             <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
+
         </div>
 
         <!--Display Furniture-->
@@ -122,3 +124,4 @@
         </div>
     </div>
 </div>
+<button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.placeOrder(myArray[0])">Place Order</button>
