@@ -5,6 +5,7 @@ import { CartService } from '../services/cart.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-cart',
@@ -39,26 +40,22 @@ export class CartComponent implements OnInit {
             this.totalPrice = this.totalPrice + thePrice;
           }
         }
+
+        if(this.myArray[0].length == 0)
+        {
+          $('.noItems').css('display', 'block');
+          $('.yesItems').css('display', 'none');
+        }
+        else
+        {
+          $('.noItems').css('display', 'none');
+          $('.yesItems').css('display', 'block');
+        }
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
     console.log("myArray: ", this.myArray);
-    //console.log("myArray slice: ", this.myArray.slice());
-    //console.log("myArray isArray: ", Array.isArray(this.myArray));
-    console.log("myArray[0]: ", this.myArray[0]);
-    //this.myCart = this.myArray[0].cart;
-    //console.log("myCart: ", this.myCart);
-    //console.log("myCart[0]: ", this.myCart[0]);
-    console.log("Array Length: ", this.myArray.length);
-    //console.log("myArray[0]: ", this.myArray[0]);
-    //this.totalPrice = this.cart.getTotalPrice(this.myArray[0]);
-    //console.log("Total Price: ", this.totalPrice);
-    //this.getTotalPrice();
-    //this.myCart = this.myArray;
-    //console.log("myCart: ", this.myCart);
-    //var first = this.myArray[0];
-    //console.log("first: ", first);
-    //console.log("myCart[0]: ", this.myCart[0]);
+    
   }
 }

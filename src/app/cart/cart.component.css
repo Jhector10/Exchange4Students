@@ -57,14 +57,23 @@ img {
 
 h1{
     text-align: center;
-    padding: 50px 0px;
+    padding-top: 50px;
+    padding-bottom: 20px;
     font-size: 30px;
+    font-weight: bold;
 }
 
 h2 {
-display: inline;
+    display: inline;
 
 }
+
+h3{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 25px;
+}
+
 
 h4{
     display: inline;
@@ -86,4 +95,17 @@ p{
 
 .placeOrder {
     margin-right: 280px;
+
 }
+
+.noItems {
+    margin: auto;
+    display: none;
+    text-align: center;
+}
+
+.yesItems {
+    margin: auto;
+    display: none;
+}
+
