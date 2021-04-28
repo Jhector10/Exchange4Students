@@ -1,7 +1,8 @@
+<p>view-orders works!</p>
+<h1>Your Listings</h1>
 
-<h1>Cart</h1>
-<div *ngFor="let doc of myArray[0]">
-    <div class="listing media" id = "listing-preview" *ngIf="doc.itemStatus === 'For Sale'">
+<div *ngFor="let doc of myArray">
+    <div class="listing media" id = "listing-preview" *ngIf="doc.category != undefined">
 
         <div class="photo">
             <img id="images" src={{doc.imageURL}} alt="listing image"/> 
@@ -24,9 +25,6 @@
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}<strong> Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
-
         </div>
         
         <!--Display Clothing-->
@@ -46,9 +44,6 @@
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
-
         </div>
 
         <!--Display Furniture-->
@@ -72,9 +67,6 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-                
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
         </div>
 
         <!--Display Electronics-->
@@ -98,8 +90,6 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
         </div>
 
         <!--Display Sports Gear-->
@@ -119,9 +109,6 @@
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.removeFromCart(doc)">Remove</button>
-            <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.addToOrder(doc)">Order</button>
         </div>
     </div>
 </div>
-<button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.placeOrder(myArray[0])">Place Order</button>

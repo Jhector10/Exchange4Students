@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   //myCart: any[] = []
   ngOnInit(): void {
     var db = firebase.firestore();
-    db.collection("user").doc(this.authService.getUser())
+    db.collection("carts").doc(this.authService.getUser())
       .get()
       .then((doc) => {
         //console.log("Document data:", doc.data());

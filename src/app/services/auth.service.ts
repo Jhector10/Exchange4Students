@@ -79,4 +79,116 @@ export class AuthService {
     {
         return firebase.auth().currentUser?.displayName
     }
+
+    public deleteAccount() {
+        var confirm: any = window.confirm("Are you sure you want to delete your account?");
+        // this.googleLogin();
+        // var username: any = firebase.auth().currentUser?.email;
+        // var password: any = prompt("Confirm your password:");
+        if (confirm == true) {
+            const db = firebase.firestore();
+            db.collection('books').where("uid", "==", firebase.auth().currentUser?.uid)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.data().docId == undefined) {
+                        db.collection(doc.data().category).doc(doc.id).update({
+                            'docId': doc.id
+                        })
+                    }
+                    db.collection(doc.data().category).doc(doc.id).delete().then(() => {
+                        console.log("Document successfully deleted!");
+                    })
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+            db.collection('clothing').where("uid", "==", firebase.auth().currentUser?.uid)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.data().docId == undefined) {
+                        db.collection(doc.data().category).doc(doc.id).update({
+                            'docId': doc.id
+                        })
+                    }
+                    db.collection(doc.data().category).doc(doc.id).delete().then(() => {
+                        console.log("Document successfully deleted!");
+                    })
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+            db.collection('furniture').where("uid", "==", firebase.auth().currentUser?.uid)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.data().docId == undefined) {
+                        db.collection(doc.data().category).doc(doc.id).update({
+                            'docId': doc.id
+                        })
+                    }
+                    db.collection(doc.data().category).doc(doc.id).delete().then(() => {
+                        console.log("Document successfully deleted!");
+                    })
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+            db.collection('electronics').where("uid", "==", firebase.auth().currentUser?.uid)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.data().docId == undefined) {
+                        db.collection(doc.data().category).doc(doc.id).update({
+                            'docId': doc.id
+                        })
+                    }
+                    db.collection(doc.data().category).doc(doc.id).delete().then(() => {
+                        console.log("Document successfully deleted!");
+                    })
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+            db.collection('sportsgear').where("uid", "==", firebase.auth().currentUser?.uid)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.data().docId == undefined) {
+                        db.collection(doc.data().category).doc(doc.id).update({
+                            'docId': doc.id
+                        })
+                    }
+                    db.collection(doc.data().category).doc(doc.id).delete().then(() => {
+                        console.log("Document successfully deleted!");
+                    })
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+
+            // db.collection('users').doc(firebase.auth().currentUser?.uid).delete().then(() => {
+            //     console.log("Account successfully deleted!");
+            //     alert('Account deleted');
+            //     // window.location.href = '#';
+            // })
+            // .catch((error) => {
+            //     console.error("Error removing document: ", error);
+            // });
+
+            // firebase.auth().signInWithEmailAndPassword(username, password);
+            firebase.auth().currentUser?.delete().then(() => {
+                console.log("Account successfully deleted!");
+            })
+            .catch((error) => {
+                console.log("Error deleting user: ", error);
+            });
+        }
+    }
 }

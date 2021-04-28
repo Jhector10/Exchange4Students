@@ -38,6 +38,7 @@ import { ElectronicsPageComponent } from './electronics-page/electronics-page.co
 import { SportsPageComponent } from './sports-page/sports-page.component';
 import { ViewListingsComponent } from './view-listings/view-listings.component';
 import { CartComponent } from './cart/cart.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 
 
@@ -55,7 +56,8 @@ import { CartComponent } from './cart/cart.component';
     SportsPageComponent,
     SearchComponent,
     ViewListingsComponent,
-    CartComponent 
+    CartComponent,
+    ViewOrdersComponent 
   ],
   imports: [
     BrowserModule,

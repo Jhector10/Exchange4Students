@@ -9,6 +9,7 @@ import { FurniturePageComponent } from './furniture-page/furniture-page.componen
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
 import { ViewListingsComponent } from './view-listings/view-listings.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'electronics-page', component: ElectronicsPageComponent},
   {path: 'sports-page', component: SportsPageComponent},
   {path: 'view-listings', component: ViewListingsComponent},
+  {path: 'view-orders', component: ViewOrdersComponent},
   {path: 'cart', component: CartComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
