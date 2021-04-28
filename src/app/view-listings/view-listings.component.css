@@ -28,13 +28,18 @@ img {
 
 h1{
     text-align: center;
-    padding: 50px 0px;
+    padding: 20px 0px;
     font-size: 30px;
 }
 
 h2 {
 display: inline;
+}
 
+h3{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 25px;
 }
 
 h4{
@@ -42,6 +47,7 @@ h4{
     font-size: large;
     float: right;
 }
+
 p{
     display: inline-block;
 }
