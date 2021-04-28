@@ -147,8 +147,8 @@ export class CartService {
       console.error(error);
     });
     console.log(stringCart);
-    await alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
     await this.delay(1000);
+    await this.router.navigate(['/confirm-page'])
     await location.reload();
   }
 }

@@ -37,6 +37,7 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
 import { ViewListingsComponent } from './view-listings/view-listings.component';
 import { CartComponent } from './cart/cart.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
+import { ConfirmPageComponent } from './confirm-page/confirm-page.component';
 
 
 
@@ -54,7 +55,8 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
     SportsPageComponent,
     ViewListingsComponent,
     CartComponent,
-    ViewOrdersComponent 
+    ViewOrdersComponent,
+    ConfirmPageComponent 
   ],
   imports: [
     BrowserModule,
