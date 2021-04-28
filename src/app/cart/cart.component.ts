@@ -34,6 +34,17 @@ export class CartComponent implements OnInit {
         {
           this.myArray.push(data.cart)
         }
+
+        if(this.myArray[0].length == 0)
+        {
+          $('.noItems').css('display', 'block');
+          $('.yesItems').css('display', 'none');
+        }
+        else
+        {
+          $('.noItems').css('display', 'none');
+          $('.yesItems').css('display', 'block');
+        }
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -42,10 +53,7 @@ export class CartComponent implements OnInit {
     //this.myCart = this.myArray[0].cart;
     //console.log("myCart: ", this.myCart);
     console.log(this.myArray[0].length);
-    if(this.myArray.length === 0)
-    {
-      $('.noItems').css('display', 'block');
-    }
+    
   }
 
   

@@ -62,9 +62,16 @@ h1{
 }
 
 h2 {
-display: inline;
+    display: inline;
 
 }
+
+h3{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 25px;
+}
+
 
 h4{
     display: inline;
@@ -89,6 +96,12 @@ p{
 }
 
 .noItems {
+    margin: auto;
+    display: none;
+    text-align: center;
+}
+
+.yesItems {
     margin: auto;
     display: none;
 }
