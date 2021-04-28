@@ -1,10 +1,8 @@
-<h1>Your Listings</h1>
-
+<h1>My Listings</h1>
+<h3>Items For Sale</h3>
 <div *ngFor="let doc of myArray">
     <div *ngIf="doc.itemStatus == 'For Sale'">
-        <h3>Items For Sale</h3>
         <div class="listing media" id = "listing-preview">
-
             <div class="photo">
                 <img id="images" src={{doc.imageURL}} alt="listing image"/> 
             </div>
@@ -138,9 +136,12 @@
             </div>
         </div>
     </div>
+</div>
 
+<h3>Sold Items</h3>
+<div *ngFor="let doc of myArray">
     <div *ngIf="doc.itemStatus == 'Sold'">
-        <h3>Sold Items</h3>
+        
         <div class="listing media" id = "listing-preview">
 
             <div class="photo">
