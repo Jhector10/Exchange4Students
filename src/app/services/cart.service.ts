@@ -149,6 +149,6 @@ export class CartService {
     console.log(stringCart);
     await alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
     await this.delay(1000);
-    // await location.reload();
+    await location.reload();
   }
 }
