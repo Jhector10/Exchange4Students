@@ -13,6 +13,16 @@ export class CartService {
   constructor(private firestore: AngularFirestore, 
     private authService: AuthService,) { }
 
+  getTotalPrice(theCart: any[]): number {
+    var total = 0;
+    for(var i = 0; i < theCart.length; i++) {
+      var thePrice: number = +theCart[i].price;
+      total = total + thePrice;
+    }
+    console.log(total);
+    return total;
+  }
+
   addToCart(doc: any) {
     const db = firebase.firestore();
     var userRef = db.collection("carts").doc(this.authService.getUser());
