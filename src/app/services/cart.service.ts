@@ -73,7 +73,7 @@ export class CartService {
       stringCart = stringCart + "\t\tExchange Location: " + theCart[i].exchangeLoc + "\n";
       stringCart = stringCart + "\t\tPayment Options: " + theCart[i].paymentOpt + "\n";
       //send email to seller
-      db.collection("mail").add({
+      db.collection("email").add({
         to: theCart[i].email,
         message: {
           subject: `📦 Order Placed #${confirmationNum}`,
@@ -127,7 +127,7 @@ export class CartService {
       });
     }
     //send email to buyer
-    db.collection("mail").add({
+    db.collection("email").add({
       to: this.authService.getEmail(),
       message: {
         subject: `🛒 Order Confirmation #${confirmationNum}`,

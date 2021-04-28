@@ -116,7 +116,9 @@
         </div>
     </div>
 </div>
+
 <br>
-<div class="placeOrder">
-    <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.placeOrder(myArray[0])">Place Order</button>
-</div>
+<button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.placeOrder(myArray[0])">Place Order</button>
+<p id="totalPrice"><strong>Total Price: </strong>${{this.totalPrice}}</p>
+
+
