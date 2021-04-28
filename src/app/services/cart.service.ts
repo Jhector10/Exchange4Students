@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
 import firebase from 'firebase/app';
 import { ResourceLoader } from '@angular/compiler';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,8 @@ import { ResourceLoader } from '@angular/compiler';
 export class CartService {
 
   constructor(private firestore: AngularFirestore, 
-    private authService: AuthService,) { }
+    private authService: AuthService,
+    public router: Router) { }
 
   addToCart(doc: any) {
     const db = firebase.firestore();
@@ -30,7 +32,7 @@ export class CartService {
           });
         }
       });
-    alert("Added to Cart!");
+    alert("Added to Cart");
   }
 
 
