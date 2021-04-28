@@ -1,5 +1,5 @@
 <h1>Cart</h1>
-<div *ngFor="let doc of myArray[0].cart">
+<div *ngFor="let doc of myArray[0]">
     <div class="listing media" id = "listing-preview" *ngIf="doc.itemStatus === 'For Sale'">
 
         <div class="photo">
@@ -122,3 +122,4 @@
         </div>
     </div>
 </div>
+<button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.placeOrder(myArray[0])">Place Order</button>
