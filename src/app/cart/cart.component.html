@@ -117,23 +117,8 @@
     </div>
 </div>
 <button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.placeOrder(myArray[0])">Place Order</button>
-<p id="totalPrice"><strong>Total Price: </strong></p>
-<button class="button" mdbBtn type="button" mdbWavesEffect (click)="cart.getTotalPrice(myArray[0])">Get Total</button>
+<p id="totalPrice"><strong>Total Price: </strong>${{this.totalPrice}}</p>
 
-
-<script>
-    function totalPrice(theCart) {
-        var total = 0;
-        for(var i = 0; i < theCart.length; i++) {
-            var thePrice = +theCart[i].price;
-            total = total + thePrice;
-        }
-        console.log(total);
-        document.querySelector("totalPrice").innerHTML = window.totalPrice(myArray[0]);
-        return total;
-    }
-    
-</script>
 
 
 

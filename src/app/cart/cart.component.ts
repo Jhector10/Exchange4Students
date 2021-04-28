@@ -34,15 +34,19 @@ export class CartComponent implements OnInit {
         if(data != null)
         {
           this.myArray.push(data.cart)
+          for(var i = 0; i < this.myArray[0].length; i++) {
+            var thePrice: number = +this.myArray[0][i].price;
+            this.totalPrice = this.totalPrice + thePrice;
+          }
         }
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
     console.log("myArray: ", this.myArray);
-    console.log("myArray slice: ", this.myArray.slice());
-    console.log("myArray isArray: ", Array.isArray(this.myArray));
-    //console.log("myArray: ", this.myArray);
+    //console.log("myArray slice: ", this.myArray.slice());
+    //console.log("myArray isArray: ", Array.isArray(this.myArray));
+    console.log("myArray[0]: ", this.myArray[0]);
     //this.myCart = this.myArray[0].cart;
     //console.log("myCart: ", this.myCart);
     //console.log("myCart[0]: ", this.myCart[0]);
@@ -51,24 +55,10 @@ export class CartComponent implements OnInit {
     //this.totalPrice = this.cart.getTotalPrice(this.myArray[0]);
     //console.log("Total Price: ", this.totalPrice);
     //this.getTotalPrice();
-    this.myCart = this.myArray;
-    console.log("myCart: ", this.myCart);
-    var first = this.myArray[0];
-    console.log("first: ", first);
-    console.log("myCart[0]: ", this.myCart[0]);
-  }
-
-  getTotalPrice() {
-    for(var i = 0; i < this.myArray.length; i++) {
-      this.totalPrice = this.totalPrice + this.myArray[i];
-    }
-    console.log("Total Price: ", this.totalPrice);
-  }
-
-  calculateTotal(price: number) {
-    var thePrice: number = +price;
-    this.totalPrice = this.totalPrice + thePrice;
-    console.log("Total Price: ", this.totalPrice);
-    return this.totalPrice;
+    //this.myCart = this.myArray;
+    //console.log("myCart: ", this.myCart);
+    //var first = this.myArray[0];
+    //console.log("first: ", first);
+    //console.log("myCart[0]: ", this.myCart[0]);
   }
 }
