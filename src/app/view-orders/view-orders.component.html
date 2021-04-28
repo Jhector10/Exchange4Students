@@ -1,5 +1,4 @@
-<p>view-orders works!</p>
-<h1>Your Listings</h1>
+<h1>Your Orders</h1>
 
 <div *ngFor="let doc of myArray">
     <div class="listing media" id = "listing-preview" *ngIf="doc.category != undefined">
@@ -19,9 +18,6 @@
             <p><strong>Edition: </strong>{{doc.edition}}<strong> Course Number: </strong>{{doc.courseNum}}</p> 
             <br>
             <p><strong>Description: </strong>{{doc.description}}</p> 
-            <br>
-            <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-            <br>
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}<strong> Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
@@ -38,9 +34,6 @@
             <p><strong>Size: </strong>{{doc.size}}</p> 
             <br>
             <p><strong>Description: </strong>{{doc.description}}</p>
-            <br>
-            <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-            <br>
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
             <p><strong>Seller: </strong>{{doc.email}}</p>
@@ -60,9 +53,6 @@
             <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
             <br>
             <p><strong>Description: </strong>{{doc.description}}</p> 
-            <br>
-            <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-            <br>
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
@@ -83,9 +73,6 @@
             <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
             <br>
             <p><strong>Description: </strong>{{doc.description}}</p> 
-            <br>
-            <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-            <br>
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>
@@ -102,9 +89,6 @@
             <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
             <br>
             <p><strong>Description: </strong>{{doc.description}}</p> 
-            <br>
-            <p><strong>Item Status: </strong>{{doc.itemStatus}}</p>
-            <br>
             <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
             <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
             <br>

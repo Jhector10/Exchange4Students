@@ -14,6 +14,18 @@ export class ViewOrdersComponent implements OnInit {
   myArray: any[] = []
 
   ngOnInit(): void {
+    const db = firebase.firestore();
+    db.collection('orders').where("purchaser", "==", this.authService.getUser())
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          this.myArray.push(doc.data().order);
+          console.log(doc.id, " => ", doc.data().order[0]);
+        });
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
   }
 
 }

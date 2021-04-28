@@ -97,24 +97,32 @@ export class ViewListingsComponent implements OnInit {
       });
   }
 
-  deleteListing(doc: any) {
+  delay(timeInMillis: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(() => resolve(), timeInMillis));
+  }
+
+  async deleteListing(doc: any) {
     // console.log(this.myArray.indexOf('sM1h3ELlufXAOlWOMXkd'));
     // var getDocId = this.myArray.indexOf(doc)+1;
     // var docID = this.myArray[getDocId];
     // console.log(docID);
     // console.log(doc.category);
+    var confirm: any = window.confirm("Are you sure you want to delete this item?");
     const db = firebase.firestore();
-    db.collection(doc.category).doc(doc.docId).delete().then(() => {
-      console.log("Document successfully deleted!");
-      alert('Item deleted');
-      location.reload();
-    })
-    .catch((error) => {
-      console.error("Error removing document: ", error);
-    });
+    if (confirm == true) {
+      db.collection(doc.category).doc(doc.docId).delete().then(() => {
+        console.log("Document successfully deleted!");
+        alert('Item deleted');
+      })
+      .catch((error) => {
+        console.error("Error removing document: ", error);
+      });
+    }
+    await this.delay(1000);
+    location.reload();
   }
 
-  markAsSold(doc: any) {
+  async markAsSold(doc: any) {
     // var getDocId = this.myArray.indexOf(doc)+1;
     // var docID = this.myArray[getDocId];
     const db = firebase.firestore();
@@ -124,14 +132,15 @@ export class ViewListingsComponent implements OnInit {
     .then(() => {
       console.log("Document successfully updated!");
       alert('Item mark as sold');
-      location.reload();
     })
     .catch((error) => {
       console.error("Error updating document: ", error);
     });
+    await this.delay(1000);
+    location.reload();
   }
 
-  markAsForSale(doc: any) {
+  async markAsForSale(doc: any) {
     // var getDocId = this.myArray.indexOf(doc)+1;
     // var docID = this.myArray[getDocId];
     const db = firebase.firestore();
@@ -141,11 +150,12 @@ export class ViewListingsComponent implements OnInit {
     .then(() => {
       console.log("Document successfully updated!");
       alert('Item mark as for sale');
-      location.reload();
     })
     .catch((error) => {
       console.error("Error updating document: ", error);
     });
+    await this.delay(1000);
+    location.reload();
   }
-  
+
 }

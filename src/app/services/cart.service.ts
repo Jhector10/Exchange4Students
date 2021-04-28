@@ -42,15 +42,15 @@ export class CartService {
       cart: firebase.firestore.FieldValue.arrayRemove(doc)
     });
     // alert("Deleted from Cart!");
-    await this.delay(500);
-    location.reload();
+    await this.delay(1000);
+    await location.reload();
   }
 
   delay(timeInMillis: number): Promise<void> {
     return new Promise((resolve) => setTimeout(() => resolve(), timeInMillis));
   }
 
-  placeOrder(theCart: any[]) {
+  async placeOrder(theCart: any[]) {
     let confirmationNum: string = Math.random().toString().substring(2);
     let stringCart = "";
     const db = this.firestore;
@@ -83,11 +83,31 @@ export class CartService {
             "- Your friends at Exchange4Students"
         },
       })
-      .then(() => console.log("Queued email for delivery!"))
+      .then(() => {
+        console.log(theCart);
+        db.collection('orders').add({
+        order : theCart[i],
+        purchaser : this.authService.getUser()
+        });
+        if (theCart[i].docId == undefined) {
+          db.collection(theCart[i].category).get().subscribe((ss) => {
+            ss.docs.forEach((doc) => {
+              db.doc(doc.id).update({
+                docId: doc.id
+              })
+            })
+          })
+        }
+        else {
+          db.collection(theCart[i].category).doc(theCart[i].docId).update({
+            itemStatus: 'Sold'
+          });
+          console.log("Queued email for delivery!");
+        }
+      })
       .catch((error) => {
         console.error(error);
       });
-      alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
     }
     //send email to buyer
     db.collection("mail").add({
@@ -102,10 +122,16 @@ export class CartService {
           "- Your friends at Exchange4Students"
       },
     })
-    .then(() => console.log("Queued email for delivery!"))
+    .then(() => {
+      console.log("Queued email for delivery!");
+      db.collection('carts').doc(this.authService.getUser()).delete();
+    })
     .catch((error) => {
       console.error(error);
     });
     console.log(stringCart);
+    await alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
+    await this.delay(1000);
+    await location.reload();
   }
 }
