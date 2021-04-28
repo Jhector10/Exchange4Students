@@ -113,13 +113,14 @@ export class ViewListingsComponent implements OnInit {
       db.collection(doc.category).doc(doc.docId).delete().then(() => {
         console.log("Document successfully deleted!");
         alert('Item deleted');
+        this.delay(1000);
+        location.reload();
       })
       .catch((error) => {
         console.error("Error removing document: ", error);
       });
     }
-    await this.delay(1000);
-    location.reload();
+    
   }
 
   async markAsSold(doc: any) {

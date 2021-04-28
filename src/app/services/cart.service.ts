@@ -87,7 +87,8 @@ export class CartService {
         console.log(theCart);
         db.collection('orders').add({
         order : theCart[i],
-        purchaser : this.authService.getUser()
+        purchaser : this.authService.getUser(),
+        confirmNum : confirmationNum
         });
         if (theCart[i].docId == undefined) {
           db.collection(theCart[i].category).get().subscribe((ss) => {
