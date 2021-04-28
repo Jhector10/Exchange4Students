@@ -39,13 +39,17 @@ export class CartService {
   async removeFromCart(doc: any) {
     const db = firebase.firestore();
     var userRef = db.collection("carts").doc(this.authService.getUser());
-
-    userRef.update({
-      cart: firebase.firestore.FieldValue.arrayRemove(doc)
-    });
+    var confirm: any = window.confirm("Are you sure you want to delete?");
+    if(confirm)
+    {
+      userRef.update({
+        cart: firebase.firestore.FieldValue.arrayRemove(doc)
+      });
+      await this.delay(1000);
+      await location.reload();
+    }
     // alert("Deleted from Cart!");
-    await this.delay(1000);
-    await location.reload();
+
   }
 
   delay(timeInMillis: number): Promise<void> {
@@ -98,8 +102,14 @@ export class CartService {
               db.doc(doc.id).update({
                 docId: doc.id
               })
+
+              db.collection(theCart[i].category).doc(doc.id).update({
+                itemStatus: 'Sold'
+              });
+              console.log("Queued email for delivery!");
             })
           })
+          
         }
         else {
           db.collection(theCart[i].category).doc(theCart[i].docId).update({
