@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
 import firebase from 'firebase/app';
 import { ResourceLoader } from '@angular/compiler';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,8 @@ import { ResourceLoader } from '@angular/compiler';
 export class CartService {
 
   constructor(private firestore: AngularFirestore, 
-    private authService: AuthService,) { }
+    private authService: AuthService,
+    public router: Router) { }
 
   addToCart(doc: any) {
     const db = firebase.firestore();
@@ -30,30 +32,35 @@ export class CartService {
           });
         }
       });
-    alert("Added to Cart!");
+    alert("Added to Cart");
   }
 
 
   async removeFromCart(doc: any) {
     const db = firebase.firestore();
     var userRef = db.collection("carts").doc(this.authService.getUser());
-
-    userRef.update({
-      cart: firebase.firestore.FieldValue.arrayRemove(doc)
-    });
+    var confirm: any = window.confirm("Are you sure you want to delete?");
+    if(confirm)
+    {
+      userRef.update({
+        cart: firebase.firestore.FieldValue.arrayRemove(doc)
+      });
+      await this.delay(1000);
+      await location.reload();
+    }
     // alert("Deleted from Cart!");
-    await this.delay(500);
-    location.reload();
+
   }
 
   delay(timeInMillis: number): Promise<void> {
     return new Promise((resolve) => setTimeout(() => resolve(), timeInMillis));
   }
 
-  placeOrder(theCart: any[]) {
+  async placeOrder(theCart: any[]) {
     let confirmationNum: string = Math.random().toString().substring(2);
     let stringCart = "";
     const db = this.firestore;
+    const fire = firebase.firestore();
     console.log(theCart);
 
     //takes listing data & places in stringCart; sends emails to sellers
@@ -83,11 +90,41 @@ export class CartService {
             "- Your friends at Exchange4Students"
         },
       })
-      .then(() => console.log("Queued email for delivery!"))
+      .then(() => {
+        console.log(theCart);
+        db.collection('orders').add({
+        order : theCart[i],
+        purchaser : this.authService.getUser(),
+        confirmNum : confirmationNum
+        });
+        if (theCart[i].docId == undefined) {
+          fire.collection(theCart[i].category)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              console.log(doc.id);
+              fire.collection(doc.data().category).doc(doc.id).update({
+                docId: doc.id
+              })
+
+              db.collection(theCart[i].category).doc(doc.id).update({
+                itemStatus: 'Sold'
+              });
+              console.log("Queued email for delivery!");
+            })
+          })
+          
+        }
+        else {
+          db.collection(theCart[i].category).doc(theCart[i].docId).update({
+            itemStatus: 'Sold'
+          });
+          console.log("Queued email for delivery!");
+        }
+      })
       .catch((error) => {
         console.error(error);
       });
-      alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
     }
     //send email to buyer
     db.collection("email").add({
@@ -102,10 +139,16 @@ export class CartService {
           "- Your friends at Exchange4Students"
       },
     })
-    .then(() => console.log("Queued email for delivery!"))
+    .then(() => {
+      console.log("Queued email for delivery!");
+      db.collection('carts').doc(this.authService.getUser()).delete();
+    })
     .catch((error) => {
       console.error(error);
     });
     console.log(stringCart);
+    await alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
+    await this.delay(1000);
+    await location.reload();
   }
 }
