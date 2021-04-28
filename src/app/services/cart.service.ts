@@ -60,6 +60,7 @@ export class CartService {
     let confirmationNum: string = Math.random().toString().substring(2);
     let stringCart = "";
     const db = this.firestore;
+    const fire = firebase.firestore();
     console.log(theCart);
 
     //takes listing data & places in stringCart; sends emails to sellers
@@ -97,9 +98,12 @@ export class CartService {
         confirmNum : confirmationNum
         });
         if (theCart[i].docId == undefined) {
-          db.collection(theCart[i].category).get().subscribe((ss) => {
-            ss.docs.forEach((doc) => {
-              db.doc(doc.id).update({
+          fire.collection(theCart[i].category)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              console.log(doc.id);
+              fire.collection(doc.data().category).doc(doc.id).update({
                 docId: doc.id
               })
 
