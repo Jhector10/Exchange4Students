@@ -149,6 +149,5 @@ export class CartService {
     console.log(stringCart);
     await this.delay(1000);
     await this.router.navigate(['/confirm-page'])
-    await location.reload();
   }
 }
