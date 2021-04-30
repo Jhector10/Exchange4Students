@@ -4,7 +4,10 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import firebase from 'firebase/app';
 import { ResourceLoader } from '@angular/compiler';
 import { Router } from "@angular/router";
-//import * as alertify from "alertifyjs/alert.js";
+
+import * as alertify from "alertifyjs";
+//import alertify from 'alertifyjs';
+//declare let alertify: any;
 
 @Injectable({
   providedIn: 'root',
@@ -33,8 +36,8 @@ export class CartService {
           });
         }
       });
-    //alertify.success('Added to Cart!');
-    alert("Added to Cart");
+    alertify.success('Added to Cart!');
+    //alert("Added to Cart");
   }
 
 
