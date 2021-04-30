@@ -44,7 +44,21 @@ export class CartService {
   async removeFromCart(doc: any) {
     const db = firebase.firestore();
     var userRef = db.collection("carts").doc(this.authService.getUser());
-    var confirm: any = window.confirm("Are you sure you want to delete?");
+    //var confirm: any = window.confirm("Are you sure you want to delete?");
+    alertify.confirm("Are you sure you want to delete?",
+      async () =>{
+        alertify.success('Deleted from Cart!');
+        userRef.update({
+          cart: firebase.firestore.FieldValue.arrayRemove(doc)
+        });
+        await this.delay(1000);
+        location.reload();
+      },
+      function(){
+        alertify.error('Canceled');
+      }
+    );
+    /*
     if(confirm)
     {
       userRef.update({
@@ -53,7 +67,8 @@ export class CartService {
       await this.delay(1000);
       await location.reload();
     }
-    // alert("Deleted from Cart!");
+    */
+    //alert("Deleted from Cart!");
 
   }
 
