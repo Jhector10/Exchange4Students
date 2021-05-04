@@ -19,8 +19,8 @@ export class ViewOrdersComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.myArray.push(doc.data().order);
-          console.log(doc.id, " => ", doc.data().order[0]);
+          this.myArray.push(doc.data());
+          console.log(doc.id, " => ", doc.data());
         });
       })
       .catch((error) => {

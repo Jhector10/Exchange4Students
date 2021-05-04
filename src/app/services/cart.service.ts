@@ -92,11 +92,13 @@ export class CartService {
       })
       .then(() => {
         console.log(theCart);
+        /*
         db.collection('orders').add({
         order : theCart[i],
         purchaser : this.authService.getUser(),
         confirmNum : confirmationNum
         });
+        */
         if (theCart[i].docId == undefined) {
           fire.collection(theCart[i].category)
           .get()
@@ -141,6 +143,11 @@ export class CartService {
     })
     .then(() => {
       console.log("Queued email for delivery!");
+      db.collection('orders').add({
+        order : theCart,
+        purchaser : this.authService.getUser(),
+        confirmNum : confirmationNum
+      });
       db.collection('carts').doc(this.authService.getUser()).delete();
     })
     .catch((error) => {
