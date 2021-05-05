@@ -1,108 +1,103 @@
 <h1>My Orders</h1>
 
 <div *ngFor="let doc of myArray">
-    <div class="listing media" id = "listing-preview" *ngIf="doc.category != undefined">
+    <h3>Order #{{doc.confirmNum}}</h3>
+    <!-- <p>{{doc.order[0].category}}</p> -->
+    
+    <div *ngFor="let item of doc.order">
+    <div class="listing media" id = "listing-preview" *ngIf="item.category != undefined">
 
         <div class="photo">
-            <img id="images" src={{doc.imageURL}} alt="listing image"/> 
+            <img id="images" src={{item.imageURL}} alt="listing image"/> 
         </div>
         
         <!--Display Books-->
-        <div *ngIf="doc.category === 'books'" class="content media-body">
+        <div *ngIf="item.category === 'books'" class="content media-body">
             <!-- Book Elements in Preview-->
-            <h2><strong>{{doc.listingTitle}}</strong></h2> 
-            <h4><strong>Price:</strong> ${{doc.price}}</h4>
+            <h2><strong>{{item.listingTitle}}</strong></h2> 
+            <h4><strong>Price:</strong> ${{item.price}}</h4>
             <br>
-            <p><strong>Book Title: </strong>{{doc.bookTitle}}</p> 
+            <p><strong>Book Title: </strong>{{item.bookTitle}}</p> 
             <br>
-            <p><strong>Edition: </strong>{{doc.edition}}<strong> Course Number: </strong>{{doc.courseNum}}</p> 
+            <p><strong>Edition: </strong>{{item.edition}}<strong> Course Number: </strong>{{item.courseNum}}</p> 
             <br>
-            <p><strong>Description: </strong>{{doc.description}}</p> 
-            <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}<strong> Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <p><strong>Description: </strong>{{item.description}}</p> 
+            <p><strong>Exchange Location: </strong>{{item.exchangeLoc}}<strong> Payment Option:</strong> {{item.paymentOpt}}</p>
             <br>
-            <p><strong>Seller: </strong>{{doc.email}}</p>
-            <br>
-            <p><strong>Confirmation Number: </strong>{{doc.confirmNum}}</p>
+            <p><strong>Seller: </strong>{{item.email}}</p>
         </div>
         
         <!--Display Clothing-->
-        <div *ngIf="doc.category === 'clothing'" class="content media-body">
+        <div *ngIf="item.category === 'clothing'" class="content media-body">
             <!-- Book Elements in Preview-->
-            <h2><strong>{{doc.listingTitle}}</strong></h2> 
-            <h4><strong>Price:</strong> ${{doc.price}}</h4>
+            <h2><strong>{{item.listingTitle}}</strong></h2> 
+            <h4><strong>Price:</strong> ${{item.price}}</h4>
             <br>
-            <p><strong>Type: </strong>{{doc.type}} <strong>Color: </strong>{{doc.color}}</p>
+            <p><strong>Type: </strong>{{item.type}} <strong>Color: </strong>{{item.color}}</p>
             <br> 
-            <p><strong>Size: </strong>{{doc.size}}</p> 
+            <p><strong>Size: </strong>{{item.size}}</p> 
             <br>
-            <p><strong>Description: </strong>{{doc.description}}</p>
-            <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}} <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <p><strong>Description: </strong>{{item.description}}</p>
+            <p><strong>Exchange Location: </strong>{{item.exchangeLoc}} <strong>Payment Option:</strong> {{item.paymentOpt}}</p>
             <br>
-            <p><strong>Seller: </strong>{{doc.email}}</p>
-            <br>
-            <p><strong>Confirmation Number: </strong>{{doc.confirmNum}}</p>
+            <p><strong>Seller: </strong>{{item.email}}</p>
         </div>
 
         <!--Display Furniture-->
-        <div *ngIf="doc.category === 'furniture'" class="content media-body">
-            <h2><strong>{{doc.listingTitle}}</strong></h2> 
-            <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <div *ngIf="item.category === 'furniture'" class="content media-body">
+            <h2><strong>{{item.listingTitle}}</strong></h2> 
+            <h4><strong>Price:</strong> ${{item.price}}</h4>
             <br>
-            <p><strong>Type: </strong>{{doc.type}}</p> 
+            <p><strong>Type: </strong>{{item.type}}</p> 
             <br>
-            <p><strong>Color: </strong>{{doc.color}}</p> 
+            <p><strong>Color: </strong>{{item.color}}</p> 
             <br>
-            <p><strong>Length: </strong>{{doc.length}} in. <strong>Width: </strong>{{doc.width}} in. <strong> Height: </strong>{{doc.height}} in. </p> 
+            <p><strong>Length: </strong>{{item.length}} in. <strong>Width: </strong>{{item.width}} in. <strong> Height: </strong>{{item.height}} in. </p> 
             <br>
-            <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+            <p><strong>Weight: </strong>{{item.weight}} lb.</p>   
             <br>
-            <p><strong>Description: </strong>{{doc.description}}</p> 
-            <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
-            <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <p><strong>Description: </strong>{{item.description}}</p> 
+            <p><strong>Exchange Location: </strong>{{item.exchangeLoc}}
+            <strong>Payment Option:</strong> {{item.paymentOpt}}</p>
             <br>
-            <p><strong>Seller: </strong>{{doc.email}}</p>
-            <br>
-            <p><strong>Confirmation Number: </strong>{{doc.confirmNum}}</p>
+            <p><strong>Seller: </strong>{{item.email}}</p>
         </div>
 
         <!--Display Electronics-->
-        <div *ngIf="doc.category === 'electronics'" class="content media-body">
-            <h2><strong>{{doc.listingTitle}}</strong></h2> 
-            <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <div *ngIf="item.category === 'electronics'" class="content media-body">
+            <h2><strong>{{item.listingTitle}}</strong></h2> 
+            <h4><strong>Price:</strong> ${{item.price}}</h4>
             <br>
-            <p><strong>Type: </strong>{{doc.type}}</p> 
+            <p><strong>Type: </strong>{{item.type}}</p> 
             <br>
-            <p><strong>Model: </strong>{{doc.model}}</p> 
+            <p><strong>Model: </strong>{{item.model}}</p> 
             <br>
-            <p><strong>Length: </strong>{{doc.length}} in. <strong>Width: </strong>{{doc.width}} in. <strong> Height: </strong>{{doc.height}} in. </p> 
+            <p><strong>Length: </strong>{{item.length}} in. <strong>Width: </strong>{{item.width}} in. <strong> Height: </strong>{{item.height}} in. </p> 
             <br>
-            <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+            <p><strong>Weight: </strong>{{item.weight}} lb.</p>   
             <br>
-            <p><strong>Description: </strong>{{doc.description}}</p> 
-            <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
-            <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <p><strong>Description: </strong>{{item.description}}</p> 
+            <p><strong>Exchange Location: </strong>{{item.exchangeLoc}}
+            <strong>Payment Option:</strong> {{item.paymentOpt}}</p>
             <br>
-            <p><strong>Seller: </strong>{{doc.email}}</p>
-            <br>
-            <p><strong>Confirmation Number: </strong>{{doc.confirmNum}}</p>
+            <p><strong>Seller: </strong>{{item.email}}</p>
         </div>
 
         <!--Display Sports Gear-->
-        <div *ngIf="doc.category === 'sportsgear'" class="content media-body">
-            <h2><strong>{{doc.listingTitle}}</strong></h2> 
-            <h4><strong>Price:</strong> ${{doc.price}}</h4>
+        <div *ngIf="item.category === 'sportsgear'" class="content media-body">
+            <h2><strong>{{item.listingTitle}}</strong></h2> 
+            <h4><strong>Price:</strong> ${{item.price}}</h4>
             <br>
-            <p><strong>Type: </strong>{{doc.type}}</p> 
+            <p><strong>Type: </strong>{{item.type}}</p> 
             <br>
-            <p><strong>Weight: </strong>{{doc.weight}} lb.</p>   
+            <p><strong>Weight: </strong>{{item.weight}} lb.</p>   
             <br>
-            <p><strong>Description: </strong>{{doc.description}}</p> 
-            <p><strong>Exchange Location: </strong>{{doc.exchangeLoc}}
-            <strong>Payment Option:</strong> {{doc.paymentOpt}}</p>
+            <p><strong>Description: </strong>{{item.description}}</p> 
+            <p><strong>Exchange Location: </strong>{{item.exchangeLoc}}
+            <strong>Payment Option:</strong> {{item.paymentOpt}}</p>
             <br>
-            <p><strong>Seller: </strong>{{doc.email}}</p>
-            <br>
-            <p><strong>Confirmation Number: </strong>{{doc.confirmNum}}</p>
+            <p><strong>Seller: </strong>{{item.email}}</p>
         </div>
     </div>
+    <!-- </div> -->
 </div>
