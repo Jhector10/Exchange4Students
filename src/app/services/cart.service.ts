@@ -172,7 +172,7 @@ export class CartService {
       db.collection('orders').add({
         order : theCart,
         purchaser : this.authService.getUser(),
-        confirmNum : confirmationNum
+        confirmNum : this.confirmationNum
       });
       db.collection('carts').doc(this.authService.getUser()).delete();
     })
