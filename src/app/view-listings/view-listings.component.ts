@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import firebase from 'firebase/app';
 
+import * as alertify from "alertifyjs";
+
 @Component({
   selector: 'app-view-listings',
   templateUrl: './view-listings.component.html',
@@ -107,7 +109,26 @@ export class ViewListingsComponent implements OnInit {
     // var docID = this.myArray[getDocId];
     // console.log(docID);
     // console.log(doc.category);
-    var confirm: any = window.confirm("Are you sure you want to delete this item?");
+    //var confirm: any = window.confirm("Are you sure you want to delete this item?");
+    alertify.confirm("Are you sure you want to delete this item?",
+      () =>{
+        alertify.success('Item Deleted');
+        const db = firebase.firestore();
+        db.collection(doc.category).doc(doc.docId).delete().then(async () => {
+          console.log("Document successfully deleted!");
+          //alert('Item deleted');
+          await this.delay(1000);
+          location.reload();
+        })
+        .catch((error) => {
+          console.error("Error removing document: ", error);
+        });
+      },
+      function(){
+        alertify.error('Canceled');
+      }
+    );
+    /*
     const db = firebase.firestore();
     if (confirm == true) {
       db.collection(doc.category).doc(doc.docId).delete().then(() => {
@@ -120,6 +141,7 @@ export class ViewListingsComponent implements OnInit {
         console.error("Error removing document: ", error);
       });
     }
+    */
     
   }
 
@@ -132,7 +154,8 @@ export class ViewListingsComponent implements OnInit {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      alert('Item Marked as Sold');
+      //alert('Item Marked as Sold');
+      alertify.success('Item Marked as Sold')
     })
     .catch((error) => {
       console.error("Error updating document: ", error);
@@ -150,7 +173,8 @@ export class ViewListingsComponent implements OnInit {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      alert('Item Marked as For Sale');
+      //alert('Item Marked as For Sale');
+      alertify.success('Item Marked as For Sale')
     })
     .catch((error) => {
       console.error("Error updating document: ", error);
