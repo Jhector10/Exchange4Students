@@ -19,6 +19,12 @@ export class CartService {
     private authService: AuthService,
     public router: Router) { }
 
+  confirmationNum = "";
+
+  getConfirmationNum(): string {
+    return this.confirmationNum;
+  }
+
   addToCart(doc: any) {
     const db = firebase.firestore();
     var userRef = db.collection("carts").doc(this.authService.getUser());
@@ -77,7 +83,7 @@ export class CartService {
   }
 
   async placeOrder(theCart: any[]) {
-    let confirmationNum: string = Math.random().toString().substring(2);
+    this.confirmationNum = Math.random().toString().substring(2);
     let stringCart = "";
     const db = this.firestore;
     const fire = firebase.firestore();
@@ -96,7 +102,7 @@ export class CartService {
       db.collection("email").add({
         to: theCart[i].email,
         message: {
-          subject: `📦 Order Placed #${confirmationNum}`,
+          subject: `📦 Order Placed #${this.confirmationNum}`,
           text: 
             "Hey there! 👋 \n"+
             "An order has been placed for your listing " + theCart[i].listingTitle + " by " + this.authService.getEmail() + "\n" + 
@@ -115,7 +121,7 @@ export class CartService {
         db.collection('orders').add({
         order : theCart[i],
         purchaser : this.authService.getUser(),
-        confirmNum : confirmationNum
+        confirmNum : this.confirmationNum
         });
         if (theCart[i].docId == undefined) {
           fire.collection(theCart[i].category)
@@ -150,7 +156,7 @@ export class CartService {
     db.collection("email").add({
       to: this.authService.getEmail(),
       message: {
-        subject: `🛒 Order Confirmation #${confirmationNum}`,
+        subject: `🛒 Order Confirmation #${this.confirmationNum}`,
         text: 
           "Hey there! 👋 \n"+
           "Thanks for placing an order! Here's your summary: \n\n" + 
@@ -167,8 +173,7 @@ export class CartService {
       console.error(error);
     });
     console.log(stringCart);
-    //await alert("Thank you for your order! \n Look out for an email from us! \n - Your Friends at Exchange4Students");
     await this.delay(1000);
-    await location.reload();
+    await this.router.navigate(['/confirm-page'])
   }
 }

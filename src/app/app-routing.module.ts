@@ -11,6 +11,7 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
 import { ViewListingsComponent } from './view-listings/view-listings.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { CartComponent } from './cart/cart.component';
+import { ConfirmPageComponent } from './confirm-page/confirm-page.component';
 
 const routes: Routes = [
   {path: 'app', component: AppComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'view-listings', component: ViewListingsComponent},
   {path: 'view-orders', component: ViewOrdersComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'confirm-page', component: ConfirmPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
