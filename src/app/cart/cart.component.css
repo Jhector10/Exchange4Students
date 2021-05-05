@@ -9,34 +9,6 @@
     height: auto;
 }
 
-/* 
-.order-confirmation {
-    display: none; 
-    width: 400px;
-    height: auto;
-    padding: 60px 20px;
-    position: relative;
-    background-color: white;
-    margin: 0 auto;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 1px 1px 5px #bbb;
-}
-
-.order-confirmation button{
-    margin: 10px 0;
-    border: none; 
-    background-color: #b71c1c;
-    color: white;
-    width: 100px;
-    padding: 5px;
-    font-size: medium;
-}
-
-.order-confirmation button:hover{ 
-    background-color: #cc2828;
-} */
-
 .content {
     float: left;
     margin-left: 10px;
@@ -94,8 +66,13 @@ p{
 }
 
 .placeOrder {
-    margin-right: 280px;
+    margin-right: 270px;
 
+}
+
+.yesItems p{
+font-size: 20px;
+margin-left: 270px;
 }
 
 .noItems {
@@ -104,7 +81,9 @@ p{
 }
 
 .yesItems {
-    margin: auto;
+    padding: 50px 0;
+    margin: 0 auto;
     display: none;
+    background-color: #f7f7f7;
 }
 
